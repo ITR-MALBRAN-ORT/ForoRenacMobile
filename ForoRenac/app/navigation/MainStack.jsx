@@ -8,11 +8,9 @@ const Stack = createNativeStackNavigator();
 
 export default MainStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+    <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Landing" component={LandingScreen} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 };

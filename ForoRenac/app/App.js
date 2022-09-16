@@ -29,8 +29,10 @@ import {
 //Splash Screen module
 import SplashScreen from 'react-native-splash-screen';
 
-//Navigation Stack
+//Navigation 
 import MainStack from './navigation/MainStack';
+import DrawerNavigation from './navigation/DrawerNavigation';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
 
@@ -48,12 +50,18 @@ const App = () => {
   };
 
   return (
-    <>
-    <StatusBar barStyle="dark-content" />
-    <SafeAreaView style={{flex: 1}}>
-      <MainStack/>
-    </SafeAreaView>
-  </>
+    // <NavigationContainer>
+    //   <DrawerNavigation />
+    // </NavigationContainer>
+
+      <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>
+      <DrawerNavigation />
+    </NavigationContainer>
+      </SafeAreaView>
+    </>
   );
 };
 
