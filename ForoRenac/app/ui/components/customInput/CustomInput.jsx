@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import CustomInputUI from './CustomInputUI';
 
 export default CustomInput = props => {
-  const {icon, label, type, placeholder, required, saveValue, secureTextEntry} = props;
+  const {icon, label, type, placeholder, required, saveValue, secureTextEntry, shortInput} = props;
   const [errorMessage, setErrorMessage] = useState('');
 
   onEndEditing = text => {
@@ -32,6 +32,7 @@ export default CustomInput = props => {
       secureTextEntry={secureTextEntry}
       errorMessage={errorMessage}
       onEndEditing={this.onEndEditing}
+      shortInput={shortInput}
     />
   );
 };

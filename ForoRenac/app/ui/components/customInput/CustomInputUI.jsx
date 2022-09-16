@@ -17,14 +17,22 @@ export default CustomInputUI = props => {
     errorMessage,
     onEndEditing,
     secureTextEntry,
+    shortInput
   } = props;
 
   getIcon = () => {
-    return icon === 'lock' ? (
-      <Feather name={icon} size={24} />
-    ) : (
-      <MCIcon name={icon} size={24} />
-    );
+    let iconFound;
+    if(icon === 'lock') {
+      iconFound = <Feather name={icon} size={24} />
+    } else if(icon === 'email-outline') {
+      iconFound = <MCIcon name={icon} size={24} />
+    } else if(icon === 'user'){
+      iconFound = <Feather name={icon} size={24} />
+    } else {
+      iconFound = <Feather name={icon} size={24} />
+    }
+
+    return iconFound;
   };
 
   return (
@@ -34,7 +42,7 @@ export default CustomInputUI = props => {
         <Text style={styles.label}>{label}</Text>
       </View>
       <TextInput
-        style={[errorMessage ? styles.inputError : styles.input]}
+        style={[errorMessage ? styles.inputError : styles.input, shortInput ? styles.shortInput : ""]}
         placeholder={placeholder}
         keyboardType={type}
         secureTextEntry={secureTextEntry}
@@ -57,6 +65,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 7,
+  },
+  shortInput: {
+    width: 120
   },
   input: {
     height: 40,
@@ -91,4 +102,12 @@ const styles = StyleSheet.create({
   hide: {
     display: 'none',
   },
+  estilo1: {
+    borderColor: 'green',
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+  estilo2: {
+    borderRadius: 15
+  }
 });

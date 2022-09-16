@@ -4,4 +4,11 @@ export default {
   tabZones: 'Zonas',
   tabNodes: 'Nodos',
   tabMore: 'Mas',
+  login: 'Ingresar',
+  signUp: 'Crear cuenta',
+  userName: 'Nombre completo',
+  password: 'Contraseña',
+  address: 'Dirección',
+  floor: 'Piso',
+  department: 'Departamento'
 };

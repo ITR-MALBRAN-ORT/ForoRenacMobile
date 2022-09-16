@@ -3,17 +3,16 @@ import {
   View,
   StyleSheet,
   KeyboardAvoidingView,
-  ScrollView,
   Platform,
 } from 'react-native';
 
 //Custom components
-import CustomInput from '../customInput/CustomInput';
-import CustomButton from '../customButton/customButton';
+import CustomInput from '../../components/customInput/CustomInput';
+import CustomButton from '../../components/customButton/customButton';
 
 // SVG vectors
-import SVGForoRenac from '../../assets/images/VectorForoRenac.svg';
-import i18n from '../../assets/localization/i18n';
+import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
+import i18n from '../../../assets/localization/i18n';
 
 export default LoginScreenUI = ({
   handleSubmit,
@@ -49,7 +48,7 @@ export default LoginScreenUI = ({
         {/* Input Password */}
         <CustomInput
           icon="lock"
-          label="Contraseña"
+          label={i18n.t('password')}
           type="default"
           secureTextEntry={true}
           placeholder="*********"
@@ -58,7 +57,7 @@ export default LoginScreenUI = ({
         />
         {/* Button Submit */}
         <CustomButton
-          text="Ingresar"
+          text={i18n.t('login')}
           onPress={handleSubmit}
           disabled={submitDisabled}
         />
