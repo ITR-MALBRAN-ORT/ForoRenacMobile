@@ -4,7 +4,19 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 
+// For Splash react-native-splash-screen >= 0.3.1
+import android.os.Bundle; // splash
+import org.devio.rn.splashscreen.SplashScreen; // splash
 public class MainActivity extends ReactActivity {
+
+  //Showing Splash Screen
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+      SplashScreen.show(this);  // here
+      //super.onCreate(savedInstanceState);//beforeNavigation
+      //null argument: Necessary for navigation
+      super.onCreate(null);
+  }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
