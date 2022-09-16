@@ -8,6 +8,7 @@ export default {
   signUp: 'Sign up',
   userName: 'Full name',
   password: 'Password',
+  repeatPassword: 'Repeat password',
   address: 'Address',
   floor: 'Floor',
   department: 'Departament'
