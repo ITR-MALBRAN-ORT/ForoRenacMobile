@@ -56,7 +56,7 @@ export default function LoginScreen() {
       errorPassword={password.error} 
       handleSubmit={handleSubmit}
       disabled={disabled}
-      navigateRegister = {navigateTo}
+      navigate = {navigateTo}
     />
   )
 }
