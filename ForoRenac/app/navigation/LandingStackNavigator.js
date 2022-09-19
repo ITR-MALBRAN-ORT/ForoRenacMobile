@@ -3,7 +3,7 @@ import {
     NAVIGATOR,
     LANDING_STACK,
     } from './NavigationConstants';
-import Landing from '../ui/screens/landingScreen/LandingScreen';
+import LandingScreen from '../ui/screens/LandingScreen/LandingScreen';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +12,7 @@ const LandingStackNavigator = () => {
     <Stack.Navigator initialRouteName={NAVIGATOR.LANDING_FLOW}>
         <Stack.Screen 
             name={LANDING_STACK.CASOS_SCREEN}
-            component={Landing}
+            component={LandingScreen}
         />
     </Stack.Navigator>
   )

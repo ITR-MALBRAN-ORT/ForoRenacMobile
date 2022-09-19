@@ -20,10 +20,12 @@ export default LoginScreenUI = ({
   submitDisabled,
 }) => {
   return (
+    <ScrollView>
     <KeyboardAvoidingView 
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       >
+      
       {/* Add ScrollView only if is necessary */}
       {/* Logo SVGForoRenac */}
       <SVGForoRenac width={106} height={44} style={{marginTop: 50}}/>
@@ -85,6 +87,13 @@ export default LoginScreenUI = ({
           placeholder="*********"
           required={true}
         />
+        <CustomInput
+          label={i18n.t('repeatPassword')}
+          type="default"
+          secureTextEntry={true}
+          placeholder="*********"
+          required={true}
+        />
         {/* Button Submit */}
         <CustomButton
           text={i18n.t('signUp')}
@@ -93,6 +102,7 @@ export default LoginScreenUI = ({
         />
       </View>
     </KeyboardAvoidingView>
+      </ScrollView>
   );
 };
 
@@ -107,6 +117,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 25,
     borderRadius: 7,
+    marginBottom: 35
   },
   addressDetail: {
     flexDirection: 'row',
