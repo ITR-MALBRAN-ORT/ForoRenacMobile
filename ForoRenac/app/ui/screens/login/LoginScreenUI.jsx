@@ -16,13 +16,12 @@ import i18n from '../../../assets/localization/i18n';
 
 export default LoginScreenUI = ({
   handleSubmit,
-  saveEmail,
-  savePassword,
-  submitDisabled,
+  handleEmail,
+  handlePassword,
+  disabled,
 }) => {
   
   // TODO remove this - TESTING I18N translation
-  console.log('i18n Test', i18n.t('tabDevices'));
 
   return (
     <KeyboardAvoidingView
@@ -43,7 +42,7 @@ export default LoginScreenUI = ({
           secureTextEntry={false}
           placeholder="ejemplo@gmail.com"
           required={true}
-          saveValue={saveEmail}
+          saveValue={handleEmail}
         />
         {/* Input Password */}
         <CustomInput
@@ -53,13 +52,13 @@ export default LoginScreenUI = ({
           secureTextEntry={true}
           placeholder="*********"
           required={true}
-          saveValue={savePassword}
+          saveValue={handlePassword}
         />
         {/* Button Submit */}
         <CustomButton
           text={i18n.t('login')}
           onPress={handleSubmit}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
       </View>
     </KeyboardAvoidingView>

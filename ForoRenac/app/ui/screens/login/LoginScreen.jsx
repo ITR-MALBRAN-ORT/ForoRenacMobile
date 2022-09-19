@@ -1,53 +1,57 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import LoginScreenUI from './LoginScreenUI';
+import {isValidateEmail, isValidPassword} from '../../../helpers/helpers'
+export default function LoginScreen(props) {
+  const [email, setEmail] = useState({value:'', error:null})
+  const [password, setPassword] = useState({value:'', error:null})
+  const [disabled, setDisabled]=useState(true)
 
-export default class LoginScreen extends Component {
-  state = {
-    email: '',
-    password: '',
-    submitDisabled: true,
-  };
+  useEffect(()=>{
+    handleDisabled()
+  },[email, password])
 
-  constructor(props) {
-    super(props);
+  function handleDisabled(){
+    if(email.value && password.value){
+      setDisabled(false)
+    }else{
+      setDisabled(true)
+    }
   }
-
+  
   navigateTo = componentName => {
     //See componentNames list in navigation/MainStack.jsx
-    this.props.navigation.replace(componentName);
-  };
-  handleSubmit = () => {
-    if (this.state.email && this.state.password && !this.state.submitDisabled) {
-      console.log('submitted',`${this.state.email}-${this.state.password}`);
-      //TODO encrypt password and save credentials in db
-      //NavigateTo --> landing
-      this.navigateTo('Landing');
-    }
-  };
-  handleDisabled = () => {
-    this.state.email && this.state.password
-      ? this.setState({submitDisabled: false})
-      : this.setState({submitDisabled: true});
-  };
-  saveEmail = (email) => {
-    console.log('email saved', email);
-    this.setState({email});
-    this.handleDisabled();
-  };
-  savePassword = (password) => {
-    console.log('password saved', password);
-    this.setState({password});
-    this.handleDisabled();
+    props.navigation.replace(componentName);
   };
 
-  render() {
-    return (
-      <LoginScreenUI
-        saveEmail={this.saveEmail}
-        savePassword={this.savePassword}
-        handleSubmit={this.handleSubmit}
-        submitDisabled={this.state.submitDisabled}
-      />
-    );
+  function handleEmail(email){
+    if(isValidateEmail(email)){
+        setEmail({value: email, error:null})
+    }else{
+        setEmail({value:'', error: 'Email Invalid'})
+    }
   }
+
+  function handlePassword(password){
+    if(isValidPassword(password)){
+      setPassword({value:password, error:null})
+    }else{
+      setPassword({value:'', error:'Password Invalid'})
+    }
+  }
+
+  function handleSubmit(){
+    //TODO encrypt password and save credentials in db
+    //NavigateTo --> landing
+    this.navigateTo('Landing');
+    console.log('dates corrects: ')
+  }
+
+  return (
+    <LoginScreenUI
+      handleEmail={handleEmail}
+      handlePassword={handlePassword}
+      handleSubmit={handleSubmit}
+      disabled={disabled}
+    />
+  )
 }
