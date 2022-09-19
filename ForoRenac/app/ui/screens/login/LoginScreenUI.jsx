@@ -24,7 +24,7 @@ export default LoginScreenUI = ({
   errorPassword,
   errorEmail,
   disabled,
-  navigateRegister,
+  navigate,
 }) => {
   
   // TODO remove this - TESTING I18N translation
@@ -67,7 +67,7 @@ export default LoginScreenUI = ({
           disabled={disabled}
         />
         {/*Register*/}
-        <Pressable onPress={()=>navigateRegister('register')} style={{alignItems:'center'}}>
+        <Pressable onPress={()=>navigate('register')} style={{alignItems:'center'}}>
             <Text style={{color:'#00ccff'}}>¿No tienes Cuenta? Registrarse</Text>
         </Pressable>
       </View>
