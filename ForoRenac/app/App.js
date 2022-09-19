@@ -20,7 +20,6 @@ import DrawerNavigation from './navigation/DrawerNavigation';
 import LoginScreen from './ui/screens/login/LoginScreen';
 import RegisterScreen from './ui/screens/register/RegisterScreen';
 
-
 const App = () => {
   //** Hide Splash Screen */
   useEffect(() => {
@@ -40,7 +39,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
         <NavigationContainer>
-          <DrawerNavigation />
+          <RegisterScreen />
         </NavigationContainer>
       </SafeAreaView>
     </>
