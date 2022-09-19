@@ -1,9 +1,7 @@
 import React from 'react';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import ExampleOne from '../screens/ExampleOne';
-import ExampleTwo from '../screens/ExampleTwo';
-import MainStack from './MainStack';
+import BottomTabNavigation from './bottomTabs/BottomTabNavigation'
 import DrawerContent from './DrawerContent';
 
 const Drawer = createDrawerNavigator();
@@ -16,8 +14,10 @@ const DrawerNavigation = () => {
       }}
       drawerContent={props => <DrawerContent {...props} />}>
       {/* You can nest other navigations components (Tab or Stack) */}
-      <Drawer.Screen name="MainStackNavigation" component={MainStack} />
-      <Drawer.Screen name="ExampleOne" component={ExampleOne} />
+      <Drawer.Screen
+        name="BottomTabNavigation"
+        component={BottomTabNavigation}
+      />
     </Drawer.Navigator>
   );
 };
