@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   StatusBar,
   useColorScheme,
+  Text
 } from 'react-native';
 
 import {
@@ -19,6 +20,7 @@ import MainStack from './navigation/MainStack';
 import DrawerNavigation from './navigation/DrawerNavigation';
 import LoginScreen from './ui/screens/login/LoginScreen';
 import RegisterScreen from './ui/screens/register/RegisterScreen';
+import CustomTable from './ui/components/customTable/CustomTable';
 
 const App = () => {
   //** Hide Splash Screen */
@@ -38,9 +40,11 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
-        <NavigationContainer>
+        <Text style={{color: "#fff"}}>APP</Text>
+        <CustomTable></CustomTable>
+        {/* <NavigationContainer>
           <RegisterScreen />
-        </NavigationContainer>
+        </NavigationContainer> */}
       </SafeAreaView>
     </>
   );
