@@ -11,5 +11,6 @@ export default {
   repeatPassword: 'Repeat password',
   address: 'Address',
   floor: 'Floor',
-  department: 'Departament'
+  department: 'Departament',
+  requiredField:'Required Field'
 };

@@ -4,6 +4,8 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
+  Text,
 } from 'react-native';
 
 //Custom components
@@ -13,12 +15,16 @@ import CustomButton from '../../components/customButton/customButton';
 // SVG vectors
 import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import i18n from '../../../assets/localization/i18n';
+import CustomInputUI from '../../components/customInput/CustomInputUI';
 
 export default LoginScreenUI = ({
   handleSubmit,
   handleEmail,
   handlePassword,
+  errorPassword,
+  errorEmail,
   disabled,
+  navigateRegister,
 }) => {
   
   // TODO remove this - TESTING I18N translation
@@ -35,24 +41,24 @@ export default LoginScreenUI = ({
       {/* Card */}
       <View style={styles.card}>
         {/* Input Email */}
-        <CustomInput
+        <CustomInputUI
           icon="email-outline"
           label="Email"
           type="email-address"
           secureTextEntry={false}
           placeholder="ejemplo@gmail.com"
-          required={true}
           saveValue={handleEmail}
+          err={errorEmail}
         />
         {/* Input Password */}
-        <CustomInput
+        <CustomInputUI
           icon="lock"
           label={i18n.t('password')}
           type="default"
           secureTextEntry={true}
           placeholder="*********"
-          required={true}
           saveValue={handlePassword}
+          err={errorPassword}
         />
         {/* Button Submit */}
         <CustomButton
@@ -60,6 +66,10 @@ export default LoginScreenUI = ({
           onPress={handleSubmit}
           disabled={disabled}
         />
+        {/*Register*/}
+        <Pressable onPress={()=>navigateRegister('register')} style={{alignItems:'center'}}>
+            <Text style={{color:'#00ccff'}}>¿No tienes Cuenta? Registrarse</Text>
+        </Pressable>
       </View>
     </KeyboardAvoidingView>
   );
@@ -77,5 +87,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 25,
     borderRadius: 7,
+  },
+  contBtn:{
+    alignItems:'center'
   },
 });

@@ -11,5 +11,6 @@ export default {
   repeatPassword: 'Repita su contraseña',
   address: 'Dirección',
   floor: 'Piso',
-  department: 'Departamento'
+  department: 'Departamento',
+  requiredField:'Campo Obligatorio',
 };

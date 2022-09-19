@@ -14,10 +14,10 @@ export default CustomInputUI = props => {
     label,
     type,
     placeholder,
-    errorMessage,
-    onEndEditing,
+    saveValue,
     secureTextEntry,
-    shortInput
+    shortInput,
+    err
   } = props;
 
   getIcon = () => {
@@ -37,20 +37,20 @@ export default CustomInputUI = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.iconAndLabel}>
+        <View style={styles.iconAndLabel}>
         {getIcon(icon)}
         <Text style={styles.label}>{label}</Text>
       </View>
       <TextInput
-        style={[errorMessage ? styles.inputError : styles.input, shortInput ? styles.shortInput : ""]}
+        style={[err ? styles.inputError : styles.input, shortInput ? styles.shortInput : ""]}
         placeholder={placeholder}
         keyboardType={type}
         secureTextEntry={secureTextEntry}
-        onEndEditing={e => onEndEditing(e.nativeEvent.text)}
+        onEndEditing={e => saveValue(e.nativeEvent.text)}
       />
-      <Text style={errorMessage ? styles.error : styles.hide}>
+      <Text style={err ? styles.error : styles.hide}>
         {' '}
-        {errorMessage}
+        {err}
       </Text>
     </View>
   );
