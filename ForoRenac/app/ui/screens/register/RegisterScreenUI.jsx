@@ -4,11 +4,13 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-  ScrollView
+  ScrollView,
+  Pressable,
+  Text
 } from 'react-native';
 
 //Custom components
-import CustomInput from '../../components/customInput/CustomInput';
+import CustomInputUI from '../../components/customInput/CustomInputUI';
 import CustomButton from '../../components/customButton/customButton';
 
 // SVG vectors
@@ -17,8 +19,14 @@ import i18n from '../../../assets/localization/i18n';
 
 export default LoginScreenUI = ({
   handleSubmit,
-  submitDisabled,
+  handle,
+  errors, 
+  disabled,
+  navigate
 }) => {
+
+  const {handleEmail, handlePassword, handleRepeatPassword,handleFullName,handleAddress, handleFloor,handleDepartment} = handle
+  const {emailError,passwordError,repeatPasswordError,fullNameError,addressError,floorError,departmentError} = errors
   return (
     <ScrollView>
     <KeyboardAvoidingView 
@@ -34,72 +42,84 @@ export default LoginScreenUI = ({
       {/* Card */}
       <View style={styles.card}>
         {/* Nombre Completo */}
-        <CustomInput
+        <CustomInputUI
           icon="user"
           label={i18n.t('userName')}
           type="default"
           secureTextEntry={false}
           placeholder="Pedro Perez"
-          required={true}
+          saveValue={handleFullName}
+          err={fullNameError}
         />
         {/* Dirección */}
-        <CustomInput
+        <CustomInputUI
           icon="home"
           label={i18n.t('address')}
           type="default"
           secureTextEntry={false}
           placeholder="Av. Santa Fé 234"
           required={true}
+          saveValue={handleAddress}
+          err={addressError}
         />
         <View style={styles.addressDetail}>
-          <CustomInput
+          <CustomInputUI
             label={i18n.t('floor')}
             type="default"
             secureTextEntry={false}
             placeholder="3"
-            required={false}
             shortInput={true}
+            saveValue={handleFloor}
+            err={floorError}
           />
-          <CustomInput
+          <CustomInputUI
             label={i18n.t('department')}
             type="numeric"
             secureTextEntry={false}
             placeholder="26"
-            required={false}
             shortInput={true}
+            saveValue={handleDepartment}
+            err={departmentError}
           />
         </View>
         {/* Input Email */}
-        <CustomInput
+        <CustomInputUI
           icon="email-outline"
           label="Email"
           type="email-address"
           secureTextEntry={false}
           placeholder="ejemplo@gmail.com"
-          required={true}
+          saveValue={handleEmail}
+          err={emailError}
         />
         {/* Input Password */}
-        <CustomInput
+        <CustomInputUI
           icon="lock"
           label={i18n.t('password')}
           type="default"
           secureTextEntry={true}
           placeholder="*********"
-          required={true}
+          saveValue={handlePassword}
+          err={passwordError}
         />
-        <CustomInput
+        <CustomInputUI
           label={i18n.t('repeatPassword')}
           type="default"
           secureTextEntry={true}
           placeholder="*********"
-          required={true}
+          saveValue={handleRepeatPassword}
+          err={repeatPasswordError}
         />
         {/* Button Submit */}
         <CustomButton
           text={i18n.t('signUp')}
           onPress={handleSubmit}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
+        {/*Navigate login*/}
+        <Pressable onPress={()=>navigate('login')} style={{alignItems:'center'}}>
+            <Text style={{color:'#00ccff'}}>¿Ya tienes Cuenta? Iniciar Sesion</Text>
+        </Pressable>
       </View>
     </KeyboardAvoidingView>
       </ScrollView>

@@ -12,5 +12,5 @@ export default {
   address: 'Address',
   floor: 'Floor',
   department: 'Departament',
-  requiredField:'Required Field'
+  requiredField:'Required Field',
 };
