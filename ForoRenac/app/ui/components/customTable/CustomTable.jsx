@@ -4,6 +4,23 @@ const DATA = [
     {id: 1223, fecha: "09/06", estado: "En borrador" },
     {id: 1224, fecha: "09/06", estado: "Registrado" },
     {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    {id: 1225, fecha: "09/06", estado: "Cerrado" },
+    
 ]
 
 const windowWidth = Dimensions.get('window').width;
@@ -52,20 +69,21 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
-        borderRadius: 5,
-        overflow: "hidden"
+        width: "100%"
     },
     columnNames: {
         height: 50,
         borderTopLeftRadius: 15,
         flexDirection: "row",
-        textAlign: "center"
+        textAlign: "center",
+        borderTopRightRadius: 5,
+        borderTopLeftRadius: 5,
+        overflow: "hidden"
     },
     columnName: {
         justifyContent: "center",
         alignItems: "center",
-        width: windowWidth / 3,
+        width: (354 / 3),
         height: 50,
         backgroundColor: "#287AB0"
     },
@@ -73,7 +91,7 @@ const styles = StyleSheet.create({
         color: "#287AB0",
         justifyContent: "center",
         alignItems: "center",
-        width: windowWidth / 3,
+        width: (354 / 3),
         height: 50,
         backgroundColor: "#fff"
     },
