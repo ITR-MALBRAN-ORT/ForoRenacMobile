@@ -3,7 +3,7 @@ import {
     NAVIGATOR,
     LANDING_STACK,
     } from './NavigationConstants';
-import LandingScreen from '../ui/screens/LandingScreen/LandingScreen';
+import LandingScreen from '../ui/screens/landingScreen/LandingScreen';
 
 const Stack = createStackNavigator();
 
