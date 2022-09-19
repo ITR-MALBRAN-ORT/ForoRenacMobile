@@ -136,8 +136,9 @@ const styles = StyleSheet.create({
   caption: {
     fontSize: 14,
     marginTop: -10,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
     color: '#278AB0',
+    fontWeight:'500',
   },
   row: {
     marginTop: 20,
