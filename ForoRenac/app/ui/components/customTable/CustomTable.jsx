@@ -1,4 +1,5 @@
 import { View, FlatList, Text, StyleSheet, Dimensions } from "react-native";
+import CustomTableRow from "./CustomTableRow";
 
 const DATA = [
     {id: 1223, fecha: "09/06", estado: "En borrador" },
@@ -20,28 +21,10 @@ const DATA = [
     {id: 1225, fecha: "09/06", estado: "Cerrado" },
     {id: 1225, fecha: "09/06", estado: "Cerrado" },
     {id: 1225, fecha: "09/06", estado: "Cerrado" },
-    
+
 ]
 
-const windowWidth = Dimensions.get('window').width;
-
 const CustomTable = () => {
-    const item = ({item}) => {
-        return  (
-            <View style={{flexDirection:"row"}}>
-                <View style={styles.columnItem}>
-                    <Text style={styles.itemText}>{item.id}</Text>
-                </View>
-                <View style={styles.columnItem}>
-                    <Text style={styles.itemText}>{item.fecha}</Text>
-                </View>
-                <View style={styles.columnItem}>
-                    <Text style={styles.itemText}>{item.estado}</Text>
-                </View>
-            </View>
-        )
-    }
-
     return (
         <View style={styles.container}>
             <View style={styles.columnNames}>
@@ -57,7 +40,7 @@ const CustomTable = () => {
             </View>
             <FlatList
                 data={DATA}
-                renderItem={item}
+                renderItem={CustomTableRow}
                 keyExtractor={(item, index) => index.toString()}
             />
         </View>
