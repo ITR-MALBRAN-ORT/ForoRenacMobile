@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, FlatList, Text, StyleSheet} from 'react-native';
-import {CustomTableRow} from '../../components/CustomTableRow/CustomTableRow';
-import { DATA } from './data';
+import CustomTableRow from '../../components/CustomTableRow/CustomTableRow';
+import {DATA} from './data.js';
 
 const LandingScreen = () => {
   return (
@@ -61,3 +61,5 @@ const styles = StyleSheet.create({
       color: "#fff"
   }
 });
+
+export default LandingScreen;

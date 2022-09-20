@@ -12,5 +12,8 @@ export default {
   repeatPassword: 'Repeat password',
   address: 'Address',
   floor: 'Floor',
-  department: 'Departament'
+  department: 'Departament',
+  drafted: 'Drafted',
+  registered: 'Registered',
+  closed: 'Closed',
 };

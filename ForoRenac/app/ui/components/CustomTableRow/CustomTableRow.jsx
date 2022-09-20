@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import i18n from '../../../assets/localization/i18n';
 
 const STATES = {
     0: "drafted",
@@ -16,14 +17,13 @@ const CustomTableRow = ({item}) => {
                 <Text style={styles.itemText}>{item.fecha}</Text>
             </View>
             <View style={styles.columnItem}>
-                <Text style={STATES[item.estado]}>{item.estado}</Text>
+                <Text style={styles[STATES[item.estado]]}>{i18n.t(STATES[item.estado])}</Text>
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    
     columnItem: {
         justifyContent: "center",
         alignItems: "center",
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         color: "#278AB0"
     },
     itemText: {
-        color: "red"
+        color: "#287AB0"
     },
 });
 

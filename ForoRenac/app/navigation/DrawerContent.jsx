@@ -8,11 +8,6 @@ import IonICons from 'react-native-vector-icons/Ionicons';
 import avatarDefault from '../assets/images/avatar.png';
 import DrawerCustomItem from './DrawerCustomItem';
 import CustomButtonSecondary from '../ui/components/customButton/customButtonSecondary';
-<<<<<<< HEAD
-=======
-
-
->>>>>>> main
 
 const SIGN_OUT_TEXT = 'salir';
 
