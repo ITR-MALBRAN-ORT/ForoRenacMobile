@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat',
     color: '#E8E8E8',
     marginStart: 10,
+    fontWeight:'bold',
+    lineHeight: 17,
+    fontSize:14
   },
   itemContainer: {
     borderRadius: 0,

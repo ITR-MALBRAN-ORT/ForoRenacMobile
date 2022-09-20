@@ -9,6 +9,8 @@ import avatarDefault from '../assets/images/avatar.png';
 import DrawerCustomItem from './DrawerCustomItem';
 import CustomButtonSecondary from '../ui/components/customButton/customButtonSecondary';
 
+
+
 const SIGN_OUT_TEXT = 'salir';
 
 const DrawerContent = props => {
@@ -134,8 +136,9 @@ const styles = StyleSheet.create({
   caption: {
     fontSize: 14,
     marginTop: -10,
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Medium',
     color: '#278AB0',
+    fontWeight:'500',
   },
   row: {
     marginTop: 20,
