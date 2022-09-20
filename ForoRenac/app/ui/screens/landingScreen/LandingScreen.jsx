@@ -3,7 +3,7 @@ import {View, FlatList, Text, StyleSheet} from 'react-native';
 import {CustomTableRow} from '../../components/CustomTableRow/CustomTableRow';
 import { DATA } from './data';
 
-export default function LandingScreen() {
+const LandingScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.columnNames}>
@@ -23,7 +23,7 @@ export default function LandingScreen() {
         keyExtractor={(item, index) => index.toString()}
     />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({

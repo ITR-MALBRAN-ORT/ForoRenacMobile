@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {
     NAVIGATOR,
     LOGIN_STACK,
-    } from '../navigation/NavigatorConstants';
+    } from './NavigationConstants';
 import LoginScreen from '../ui/screens/login/LoginScreen';
 import RegisterScreen from '../ui/screens/register/RegisterScreen';
 
@@ -10,17 +10,17 @@ const Stack = createStackNavigator();
 
 const LoginStackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={"LOGIN"}>
+    <Stack.Navigator initialRouteName={NAVIGATOR.LOGIN_FLOW}>
         <Stack.Screen 
-            name={"LOGIN"}
+            name={LOGIN_STACK.LOGIN_SCREEN}
             component={LoginScreen}
         />
         <Stack.Screen 
-            name={"REGISTER"}
+            name={LOGIN_STACK.REGISTER_SCREEN}
             component={RegisterScreen}
         />
         <Stack.Screen 
-            name={"PASSWORD_RECOVERY"}
+            name={LOGIN_STACK.PASSWORD_RECOVERY_SCREEN}
             component={LoginScreen}
         />
     </Stack.Navigator>
