@@ -20,9 +20,6 @@ export default LoginScreenUI = ({
   savePassword,
   submitDisabled,
 }) => {
-  
-  // TODO remove this - TESTING I18N translation
-  console.log('i18n Test', i18n.t('tabDevices'));
 
   return (
     <KeyboardAvoidingView

@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import LoginScreenUI from './LoginScreenUI';
+import {
+  LOGIN_STACK
+} from '../../../navigation/NavigationConstants';
 
 export default class LoginScreen extends Component {
   state = {
@@ -12,16 +15,17 @@ export default class LoginScreen extends Component {
     super(props);
   }
 
-  navigateTo = componentName => {
+  navigateTo = ({action, componentName}) => {
     //See componentNames list in navigation/MainStack.jsx
-    this.props.navigation.replace(componentName);
+    
+    this.props.navigation[action](componentName);
   };
   handleSubmit = () => {
     if (this.state.email && this.state.password && !this.state.submitDisabled) {
       console.log('submitted',`${this.state.email}-${this.state.password}`);
       //TODO encrypt password and save credentials in db
       //NavigateTo --> landing
-      this.navigateTo('Landing');
+      this.navigateTo({action: "push", componentName: LOGIN_STACK.REGISTER_SCREEN})
     }
   };
   handleDisabled = () => {
