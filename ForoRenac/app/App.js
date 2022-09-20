@@ -40,7 +40,6 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
-        <Text style={{color: "#fff"}}>APP</Text>
         <CustomTable></CustomTable>
         {/* <NavigationContainer>
           <RegisterScreen />

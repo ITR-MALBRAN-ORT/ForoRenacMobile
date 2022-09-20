@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
 const STATES = {
-    drafted: "drafted",
-    registered: "registered",
-    closed: "closed"
+    0: "drafted",
+    1: "registered",
+    2: "closed"
 }
 
 const CustomTableRow = ({item}) => {
@@ -16,7 +16,7 @@ const CustomTableRow = ({item}) => {
                 <Text style={styles.itemText}>{item.fecha}</Text>
             </View>
             <View style={styles.columnItem}>
-                <Text style={[styles.itemText, STATES.drafted]}>{item.estado}</Text>
+                <Text style={STATES[item.estado]}>{item.estado}</Text>
             </View>
         </View>
     )
@@ -30,9 +30,6 @@ const styles = StyleSheet.create({
         width: (354 / 3),
         height: 50,
         backgroundColor: "#fff"
-    },
-    columnTitle: {
-        color: "#fff"
     },
     drafted: {
         color: "#9CABC2"
