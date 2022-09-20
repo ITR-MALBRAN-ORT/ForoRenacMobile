@@ -26,8 +26,6 @@ export default LoginScreenUI = ({
   disabled,
   navigate,
 }) => {
-  
-  // TODO remove this - TESTING I18N translation
 
   return (
     <KeyboardAvoidingView
