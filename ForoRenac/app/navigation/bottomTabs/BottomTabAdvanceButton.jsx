@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     fontSize: 35,
-    color: '#F6F7EB',
+    color: 'white',
   },
   extraLayer: {
     backgroundColor: '#6e6127',
