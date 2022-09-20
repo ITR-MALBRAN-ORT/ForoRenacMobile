@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import { View, Text } from 'react-native';
 
-export default function LandingScreen() {
+const LandingScreen = () => {
   return (
-    <View style={{flex:1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#E2E2E2'}}>
-      <Text >
-        Landing Screen
-      </Text>
+    <View>
+      <Text>LANDING SCREEN</Text>
     </View>
-  );
+  )
 }
+
+export default LandingScreen;

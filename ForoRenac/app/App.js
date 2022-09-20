@@ -1,25 +1,19 @@
 import React, {useEffect} from 'react';
-
 import {
   SafeAreaView,
-  StatusBar,
-  useColorScheme,
 } from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
 
 //Splash Screen module
 import SplashScreen from 'react-native-splash-screen';
-
 //Navigation
-import { NavigationContainer } from '@react-navigation/native';
 import MainStack from './navigation/MainStack';
 import DrawerNavigation from './navigation/DrawerNavigation';
-import LoginScreen from './ui/screens/login/LoginScreen';
-import RegisterScreen from './ui/screens/register/RegisterScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import  LoginStackNavigator  from './navigation/LoginStackNavigator';
+import LandingStackNavigator from './navigation/LandingStackNavigator';
 
+import { Text, View } from 'react-native';
 const App = () => {
   //** Hide Splash Screen */
   useEffect(() => {
@@ -27,21 +21,21 @@ const App = () => {
     SplashScreen.hide();
   });
 
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    flex: 1,
-  };
-
+  const Stack = createStackNavigator();
+  let state = {
+    userToken: null,
+  }
   return (
     <>
-      <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
         <NavigationContainer>
-          <DrawerNavigation/>
+          {state.userToken == null ? (
+            <LoginStackNavigator />
+          ) : (
+            <DrawerNavigation />
+          )}
         </NavigationContainer>
-      </SafeAreaView>
+        </SafeAreaView>
     </>
   );
 };
