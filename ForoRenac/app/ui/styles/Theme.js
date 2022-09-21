@@ -14,9 +14,9 @@ const fonts = {
     MEDIUM: 18,
     LARGE: 22,
     THIN: "300", 
-    LIGHT: "400",
-    SEMIBOLD: "500",
-    BOLD: "700"
+    LIGHT: "normal",
+    SEMIBOLD: "semibold",
+    BOLD: "bold"
 }
 
 const sizes = {
@@ -27,7 +27,7 @@ const sizes = {
 }
 
 /* PRESETS */
-export const presets = StyleSheet.create({
+const presets = StyleSheet.create({
     textPreset1: {
         fontFamily: fonts.FONTFAMILY,
         fontSize: fonts.SMALL,
@@ -50,7 +50,7 @@ export const presets = StyleSheet.create({
         width: 354,
         marginTop: 13, 
         borderWidth: 1,
-        borderColor: "red"
+        borderColor: "blue"
     },
     btnPreset1: {
         width: 192,
@@ -61,5 +61,11 @@ export const presets = StyleSheet.create({
         width: 90,
         height: 33,
         borderRadius: sizes.ROUNDEDLG, 
+    },
+    centerContent: {
+        justifyContent: "center",
+        alignItems: "center"
     }
-}); 
+});
+
+export { presets, colors, fonts, sizes };
