@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Pressable, TouchableOpacity} from 'react-native';
 import {useTheme, Avatar, Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
@@ -54,13 +54,23 @@ const DrawerContent = props => {
             </View>
 
             {/* User Info */}
-            <View style={styles.userInfoContainer}>
-              <Avatar.Image size={44} source={user.avatarImage} />
-              <View style={{marginLeft: 10, flexDirection: 'column'}}>
-                <Title style={styles.title}>{user.name}</Title>
-                <Caption style={styles.caption}>{user.institution}</Caption>
+            <TouchableOpacity
+              onPress={() => {}}
+              style={styles.userInfoContainer}>
+              <View style={styles.userInfoContainer}>
+                <Avatar.Image size={44} source={user.avatarImage} />
+                <View style={{marginLeft: 10, flexDirection: 'column'}}>
+                  <Title style={styles.title}>{user.name}</Title>
+                  <Caption style={styles.caption}>{user.institution}</Caption>
+                </View>
+                <IonICons
+                  name="arrow-forward-circle-outline"
+                  color={'white'}
+                  size={30}
+                  style={{color: 'white', marginLeft: 15}}
+                />
               </View>
-            </View>
+            </TouchableOpacity>
 
             {/* Button Section*/}
             <View style={[styles.row, {marginLeft: -10}]}>

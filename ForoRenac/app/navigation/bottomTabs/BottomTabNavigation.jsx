@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     elevation: 30,
   },
   bar: {
-    color: '#F6F7EB',
+    color: 'white',
   },
   tabBarIcon: {
     isFocus: '#1C4670',
@@ -145,6 +145,6 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     fontSize: 35,
-    color: '#F6F7EB',
+    color: 'white',
   },
 });
