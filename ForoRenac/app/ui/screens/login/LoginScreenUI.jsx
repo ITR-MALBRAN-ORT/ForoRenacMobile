@@ -4,6 +4,8 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
+  Text,
 } from 'react-native';
 
 //Custom components
@@ -13,12 +15,16 @@ import CustomButton from '../../components/customButton/customButton';
 // SVG vectors
 import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import i18n from '../../../assets/localization/i18n';
+import CustomInputUI from '../../components/customInput/CustomInputUI';
 
 export default LoginScreenUI = ({
   handleSubmit,
-  saveEmail,
-  savePassword,
-  submitDisabled,
+  handleEmail,
+  handlePassword,
+  errorPassword,
+  errorEmail,
+  disabled,
+  navigate,
 }) => {
 
   return (
@@ -33,31 +39,35 @@ export default LoginScreenUI = ({
       {/* Card */}
       <View style={styles.card}>
         {/* Input Email */}
-        <CustomInput
+        <CustomInputUI
           icon="email-outline"
           label="Email"
           type="email-address"
           secureTextEntry={false}
           placeholder="ejemplo@gmail.com"
-          required={true}
-          saveValue={saveEmail}
+          saveValue={handleEmail}
+          err={errorEmail}
         />
         {/* Input Password */}
-        <CustomInput
+        <CustomInputUI
           icon="lock"
           label={i18n.t('password')}
           type="default"
           secureTextEntry={true}
           placeholder="*********"
-          required={true}
-          saveValue={savePassword}
+          saveValue={handlePassword}
+          err={errorPassword}
         />
         {/* Button Submit */}
         <CustomButton
           text={i18n.t('login')}
           onPress={handleSubmit}
-          disabled={submitDisabled}
+          disabled={disabled}
         />
+        {/*Register*/}
+        <Pressable onPress={()=>navigate('register')} style={{alignItems:'center'}}>
+            <Text style={{color:'#00ccff'}}>¿No tienes Cuenta? Registrarse</Text>
+        </Pressable>
       </View>
     </KeyboardAvoidingView>
   );
@@ -75,5 +85,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 25,
     borderRadius: 7,
+  },
+  contBtn:{
+    alignItems:'center'
   },
 });

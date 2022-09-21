@@ -1,57 +1,62 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import LoginScreenUI from './LoginScreenUI';
-import {
-  LOGIN_STACK
-} from '../../../navigation/NavigationConstants';
+import { useNavigation } from '@react-navigation/native';
 
-export default class LoginScreen extends Component {
-  state = {
-    email: '',
-    password: '',
-    submitDisabled: true,
-  };
+import {isValidateEmail, isValidPassword} from '../../../helpers/helpers'
+export default function LoginScreen() {
+  const [email, setEmail] = useState({value:'', error:null})
+  const [password, setPassword] = useState({value:'', error:null})
+  const [disabled, setDisabled]=useState(true)
+  const navigation = useNavigation();
+  useEffect(()=>{
+    handleDisabled()
+  },[email, password])
 
-  constructor(props) {
-    super(props);
-  }
-
-  navigateTo = ({action, componentName}) => {
-    //See componentNames list in navigation/MainStack.jsx
-    
-    this.props.navigation[action](componentName);
-  };
-  handleSubmit = () => {
-    if (this.state.email && this.state.password && !this.state.submitDisabled) {
-      console.log('submitted',`${this.state.email}-${this.state.password}`);
-      //TODO encrypt password and save credentials in db
-      //NavigateTo --> landing
-      this.navigateTo({action: "push", componentName: LOGIN_STACK.REGISTER_SCREEN})
+  function handleDisabled(){
+    if(email.value && password.value){
+      setDisabled(false)
+    }else{
+      setDisabled(true)
     }
-  };
-  handleDisabled = () => {
-    this.state.email && this.state.password
-      ? this.setState({submitDisabled: false})
-      : this.setState({submitDisabled: true});
-  };
-  saveEmail = (email) => {
-    console.log('email saved', email);
-    this.setState({email});
-    this.handleDisabled();
-  };
-  savePassword = (password) => {
-    console.log('password saved', password);
-    this.setState({password});
-    this.handleDisabled();
-  };
-
-  render() {
-    return (
-      <LoginScreenUI
-        saveEmail={this.saveEmail}
-        savePassword={this.savePassword}
-        handleSubmit={this.handleSubmit}
-        submitDisabled={this.state.submitDisabled}
-      />
-    );
   }
+  
+ 
+  function navigateTo(componentName){
+      //See componentNames list in navigation/MainStack.jsx
+      console.log(componentName)
+  }
+  function handleEmail(email){
+    if(isValidateEmail(email)){
+        setEmail({value: email, error:null})
+    }else{
+        setEmail({value:'', error: 'Email Invalid'})
+    }
+  }
+
+  function handlePassword(password){
+    if(isValidPassword(password)){
+      setPassword({value: password, error:null})
+    }else{
+      setPassword({value:'', error:'Password Invalid'})
+    }
+  }
+
+  function handleSubmit(){
+    //TODO encrypt password and save credentials in db
+    //NavigateTo --> landing
+    navigateTo('Landing');
+
+  }
+
+  return (
+    <LoginScreenUI
+      handleEmail={handleEmail}
+      handlePassword={handlePassword}
+      errorEmail={email.error}
+      errorPassword={password.error} 
+      handleSubmit={handleSubmit}
+      disabled={disabled}
+      navigate = {navigateTo}
+    />
+  )
 }
