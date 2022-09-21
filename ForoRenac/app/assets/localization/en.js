@@ -8,8 +8,12 @@ export default {
   signUp: 'Sign up',
   userName: 'Full name',
   password: 'Password',
+  email: "Email",
   repeatPassword: 'Repeat password',
   address: 'Address',
   floor: 'Floor',
-  department: 'Departament'
+  department: 'Departament',
+  drafted: 'Drafted',
+  registered: 'Registered',
+  closed: 'Closed',
 };

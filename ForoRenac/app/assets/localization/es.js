@@ -8,8 +8,12 @@ export default {
   signUp: 'Crear cuenta',
   userName: 'Nombre completo',
   password: 'Contraseña',
+  email: "Email",
   repeatPassword: 'Repita su contraseña',
   address: 'Dirección',
   floor: 'Piso',
-  department: 'Departamento'
+  department: 'Departamento',
+  drafted: 'En borrador',
+  registered: 'Registrado',
+  closed: 'Cerrado',
 };
