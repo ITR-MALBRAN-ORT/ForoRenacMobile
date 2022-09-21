@@ -85,7 +85,7 @@ export default LoginScreenUI = ({
         {/* Input Email */}
         <CustomInputUI
           icon="email-outline"
-          label="Email"
+          label={i18n.t('email')}
           type="email-address"
           secureTextEntry={false}
           placeholder="ejemplo@gmail.com"
