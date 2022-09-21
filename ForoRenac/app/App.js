@@ -23,7 +23,7 @@ const App = () => {
 
   const Stack = createStackNavigator();
   let state = {
-    userToken: null,
+    userToken: "#sad",
   }
   return (
     <>
