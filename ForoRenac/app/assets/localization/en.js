@@ -15,6 +15,6 @@ export default {
   department: 'Departament',
   drafted: 'Drafted',
   registered: 'Registered',
-  closed: 'Closed',,
+  closed: 'Closed',
   requiredField:'Required Field',
 };
