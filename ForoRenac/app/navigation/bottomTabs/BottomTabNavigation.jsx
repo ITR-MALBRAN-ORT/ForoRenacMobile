@@ -40,6 +40,7 @@ export default function BottomTabNavigation() {
       screenOptions={{
         showIcon: true,
         style: styles.navigator,
+        headerShown: false,
         tabBarStyle: {
           backgroundColor: styles.bar.color,
           height: 55,

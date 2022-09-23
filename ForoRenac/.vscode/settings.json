@@ -3,6 +3,8 @@
         "casos",
         "Foro",
         "historial",
+        "middlewares",
+        "reduxjs",
         "Renac"
     ]
 }
