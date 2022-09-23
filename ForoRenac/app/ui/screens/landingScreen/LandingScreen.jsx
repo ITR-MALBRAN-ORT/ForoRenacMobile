@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, FlatList, Text, TextInput, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, TextInput, StyleSheet, ScrollView} from 'react-native';
 import CustomTableRow from '../../components/CustomTableRow/CustomTableRow';
-import {DATA, DATACLOSED} from './data.js';
+import {DATA} from './data.js';
 import Feather from 'react-native-vector-icons/Feather';
 
-const LandingScreen = (option) => {
+const LandingScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View>
@@ -12,7 +12,7 @@ const LandingScreen = (option) => {
           <TextInput style={styles.searchBar} >
             <Feather name="search" size={24} style={styles.searchBarIcon} />
           </TextInput>
-          <Feather name="filter" size={24} style={styles.searchBarIcon} />
+          <Feather name="filter" size={24} style={styles.searchBarIcon}/>
         </View>
         <View style={styles.columnNames}>
           <View style={styles.columnName}>
@@ -25,11 +25,11 @@ const LandingScreen = (option) => {
               <Text style={styles.columnTitle}>Estado caso</Text>
           </View>
       </View>
-      <FlatList
-          data={DATA}
-          renderItem={CustomTableRow}
-          keyExtractor={(item, index) => index.toString()}
-      />
+      <ScrollView>
+        {DATA.map((item) => {
+          return <CustomTableRow item={item} navigation={navigation} key={item.id}></CustomTableRow>
+        })}
+      </ScrollView>
     </View>
     </View>
   )
