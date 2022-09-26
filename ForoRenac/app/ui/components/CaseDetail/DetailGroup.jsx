@@ -5,7 +5,7 @@ const DetailGroup = ({titles, data}) => {
         <View style={styles.detailGroup}>
             {titles.map((title, index) => {
                 return(
-                    <View style={styles.detail}>
+                    <View style={styles.detail} key={`${index}-detail`}>
                         <Text style={styles.detailTitle}>{title.toUpperCase()}:</Text>
                         <Text style={styles.detailDesc}>{data[index]}</Text>
                     </View>
