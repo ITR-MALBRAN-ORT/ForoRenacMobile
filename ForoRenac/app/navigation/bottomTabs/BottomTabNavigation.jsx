@@ -6,6 +6,7 @@ import BottomTabAdvanceButton from './BottomTabAdvanceButton';
 import LandingScreen from '../../ui/screens/LandingScreen/LandingScreen';
 import LandingStackNavigator from '../LandingStackNavigator';
 import LoginStackNavigator from '../LoginStackNavigator';
+import NewCaseStackNavigator from '../NewCaseStackNavigator';
 // Creating Bottom Tab
 const Tab = createBottomTabNavigator();
 
@@ -23,8 +24,9 @@ const tabs = {
   },
   buttonTab: {
     tabScreenName: 'ExampleOne',
-    tabScreenComponent: ExampleOne,
+    tabScreenComponent: NewCaseStackNavigator,
     iconName: 'plus',
+    
   },
   tabTwo: {
     tabScreenName: 'ExampleTwo',

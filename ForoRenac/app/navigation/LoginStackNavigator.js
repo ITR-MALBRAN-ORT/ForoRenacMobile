@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 
 const LoginStackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName={NAVIGATOR.LOGIN_FLOW}>
+    <Stack.Navigator initialRouteName={NAVIGATOR.LOGIN_FLOW} screenOptions={{headerShown:false}}>
         <Stack.Screen 
             name={LOGIN_STACK.LOGIN_SCREEN}
             component={LoginScreen}

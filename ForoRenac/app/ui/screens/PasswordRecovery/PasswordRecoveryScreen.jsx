@@ -3,14 +3,18 @@ import React, { useState, useEffect } from 'react'
 import { isValidateEmail, validLength } from '../../../helpers/helpers'
 import PasswordRecoveryUi from './PasswordRecoveryUi'
 import { LOGIN_STACK } from '../../../navigation/NavigationConstants'
+import { useDispatch } from 'react-redux'
+import { recoverAccount } from '../../../redux/slices/Auth'
 export default function PasswordRecoveryScreen() {
   const [email,setEmail]=useState('')
   const [disable, setDisable]=useState(true)
   const [error, setError] = useState(null)
+  const dispatch = useDispatch()
   useEffect(()=>{
     handleDisabled()
   },[email])
   const navigation = useNavigation()
+
   function navigationTo(components){
       navigation.navigate(components)
   }
@@ -36,6 +40,7 @@ export default function PasswordRecoveryScreen() {
   }
 
   sendRecoveryEmail = () =>{
+      dispatch(recoverAccount({email:email})) 
       navigation.navigate(LOGIN_STACK.CODE_VERIFICATION_SCREEN, {code:1234})   
   }
 

@@ -8,7 +8,7 @@ import DataEstudiosScreens from "../ui/screens/FormsNewCase/DataEstudios/DataEst
 const NewCaseStackNavigator = () =>{
     const Stack = createStackNavigator()
     return(
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown:false}} >
             <Stack.Screen name={NEW_CASE.FORM_MOTHER} component={DataMotherScreen}/>
             <Stack.Screen name={NEW_CASE.FORM_FATHER} component={DataFatherScreen}/>
             <Stack.Screen name={NEW_CASE.FORM_CHILD} component={DataChildScreen} />

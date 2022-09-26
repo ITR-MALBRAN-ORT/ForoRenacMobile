@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { isValidPassword, isValidRepeatPassword, validLength } from '../../../helpers/helpers'
 import ResetPasswordUi from './ResetPasswordUi'
-
+import {setRequiredNewPassword} from '../../../redux/slices/Auth'
 export default function ResetPasswordScreen() {
-    const [newPassword, setNewPassword] = useState({value:'', error:null})
-    const [repeatPassword, setRepeatPassword] = useState({value:'', error:null})
+    const [newPassword, setNewPassword] = useState({value:'AAaa124!!', error:null})
+    const [repeatPassword, setRepeatPassword] = useState({value:'AAaa124!!', error:null})
     const [disabled, setDisabled] = useState(true)
-
+    const dispatch = useDispatch()
     useEffect(()=>{
         handleDisabled()
     },[newPassword, repeatPassword])
@@ -39,7 +40,9 @@ export default function ResetPasswordScreen() {
     }
 
     const confirmNewPassword = () =>{
-        console.log('contraseña actualizada')
+        
+        dispatch(setRequiredNewPassword(false))
+        
     }
   return <ResetPasswordUi
             confirmNewPassword = {confirmNewPassword}

@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
       marginHorizontal:35,
       marginTop:30,
       justifyContent:'space-between',
-      flex:1,
     },
     contBtn:{
       justifyContent:'center',
