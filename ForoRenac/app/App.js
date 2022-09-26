@@ -11,6 +11,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import  LoginStackNavigator  from './navigation/LoginStackNavigator';
 
+import { Text, View } from 'react-native';
+
+//Redux
+import { Provider } from 'react-redux';
+import { store } from './redux/Store';
+
+
 const App = () => {
   //** Hide Splash Screen */
   useEffect(() => {
@@ -23,7 +30,7 @@ const App = () => {
     userToken: "null",
   }
   return (
-    <>
+    <Provider store={store}>
       <SafeAreaView style={{flex: 1}}>
         <NavigationContainer>
           {state.userToken == null ? (
@@ -33,7 +40,7 @@ const App = () => {
           )}
         </NavigationContainer>
         </SafeAreaView>
-    </>
+    </Provider>
   );
 };
 

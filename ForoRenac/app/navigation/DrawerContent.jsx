@@ -1,6 +1,6 @@
-import React from 'react';
-import {View, StyleSheet, Pressable, TouchableOpacity} from 'react-native';
-import {useTheme, Avatar, Title, Caption, Drawer} from 'react-native-paper';
+import React, {useEffect} from 'react';
+import {View, StyleSheet, Pressable, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import IonICons from 'react-native-vector-icons/Ionicons';
@@ -9,20 +9,30 @@ import avatarDefault from '../assets/images/avatar.png';
 import DrawerCustomItem from './DrawerCustomItem';
 import CustomButtonSecondary from '../ui/components/customButton/customButtonSecondary';
 
+// Redux
+import {useDispatch, useSelector} from 'react-redux';
+// import {getUserById} from '../redux/slices/User';
+
 const SIGN_OUT_TEXT = 'salir';
 
 const DrawerContent = props => {
-  const paperTheme = useTheme();
+  const dispatch = useDispatch();
+  const {email, avatar, loading} = useSelector(
+    state => state.auth,
+  );
 
+  // useEffect(() => {
+  //   dispatch(getUserById());
+  // }, []);
 
   //TODO Get traduction i18n later
-  const MATERNITY_BUTTON_TEXT  = 'Cambiar maternidad'
-  
+  const MATERNITY_BUTTON_TEXT = 'Cambiar maternidad';
+
   //TODO Get user from Store later
   const user = {
-    name: 'Mónica Clements',
+    name: email,
     institution: 'Hospital del sur',
-    avatarImage: avatarDefault,
+    avatarImage: avatar,
   };
 
   // TODO Get linksItems from Store later
@@ -54,24 +64,27 @@ const DrawerContent = props => {
             </View>
 
             {/* User Info */}
-            <TouchableOpacity
-              onPress={() => {}}
-              style={styles.userInfoContainer}>
-              <View style={styles.userInfoContainer}>
-                <Avatar.Image size={44} source={user.avatarImage} />
-                <View style={{marginLeft: 10, flexDirection: 'column'}}>
-                  <Title style={styles.title}>{user.name}</Title>
-                  <Caption style={styles.caption}>{user.institution}</Caption>
+            {loading ? (
+              <ActivityIndicator size="large" />
+            ) : (
+              <TouchableOpacity
+                onPress={() => {}}
+                style={styles.userInfoContainer}>
+                <View style={styles.userInfoContainer}>
+                  <Avatar.Image size={44} source={{uri: user.avatarImage}} />
+                  <View style={{marginLeft: 10, flexDirection: 'column'}}>
+                    <Title style={styles.title}>{user.name}</Title>
+                    <Caption style={styles.caption}>{user.institution}</Caption>
+                  </View>
+                  <IonICons
+                    name="arrow-forward-circle-outline"
+                    color={'white'}
+                    size={30}
+                    style={{color: 'white', marginLeft: 15}}
+                  />
                 </View>
-                <IonICons
-                  name="arrow-forward-circle-outline"
-                  color={'white'}
-                  size={30}
-                  style={{color: 'white', marginLeft: 15}}
-                />
-              </View>
-            </TouchableOpacity>
-
+              </TouchableOpacity>
+            )}
             {/* Button Section*/}
             <View style={[styles.row, {marginLeft: -10}]}>
               <CustomButtonSecondary
@@ -146,7 +159,7 @@ const styles = StyleSheet.create({
     marginTop: -10,
     fontFamily: 'Montserrat-Medium',
     color: '#278AB0',
-    fontWeight:'500',
+    fontWeight: '500',
   },
   row: {
     marginTop: 20,
