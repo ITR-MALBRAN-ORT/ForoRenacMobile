@@ -15,6 +15,6 @@ export default {
   department: 'Departamento',
   drafted: 'En borrador',
   registered: 'Registrado',
-  closed: 'Cerrado',,
+  closed: 'Cerrado',
   requiredField:'Campo Obligatorio',
 };
