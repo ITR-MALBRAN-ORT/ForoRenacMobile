@@ -17,6 +17,9 @@ export const MOCKS_AUTH = {
   setUser: () => ({payload: fakeUser}),
 };
 
+export const MOCKS_MATERNITIES = {
+  setMaternities: () => ({payload: fakeMaternities}),
+};
 
 // * ------------ FAKE DATA ---------------
 
@@ -36,9 +39,86 @@ const fakePeriod = {
   liveBirths: 200,
   stillBirths: 200,
 };
+import {Case} from '../models/Case';
+import {Condition, Gender, ParentType} from '../models/Enums';
+import { Father } from '../models/Father';
+import {Maternity} from '../models/Maternity';
+import { Mother } from '../models/Mother';
+import {NewBorn} from '../models/NewBorn';
 
-const fakeCases = [fakeCase, fakeCase];
+const maternity1 = new Maternity({name: 'Hospital del Sur'});
+const maternity2 = new Maternity({name: 'Hospital Central'});
 
+const fakeMaternities = [maternity1, maternity2];
+
+// * ----------------- CREATE MODELS USING classes ----------------
+
+// fake case 2
+const fakeCaseOne = new Case({
+  registrantId: fakeUser.id,
+  maternityId: maternity1.id,
+});
+const fakeNewBorn = new NewBorn({
+  placeOfBirth: 'Capital',
+  weight: 4,
+  gender: Gender.female,
+  condition: Condition.dead,
+  isPremature: true,
+});
+const fakeMother = new Mother({
+  parentType: ParentType.mother,
+  age: 22,
+  name: 'Jessica',
+  lastName: 'Gomez',
+  phone: '112233',
+});
+const fakeFather = new Father({
+  parentType: ParentType.father,
+  age: 30,
+  name: 'Juan',
+  lastName: 'Perez',
+  phone: '445566',
+});
+fakeCaseOne.newBorn = fakeNewBorn;
+fakeCaseOne.mother = fakeMother;
+fakeCaseOne.father = fakeFather;
+fakeCaseOne.addMalformation({type: 0, name: 'Pilonidal defects'});
+console.log('fakeCaseOne', fakeCaseOne);
+
+// fake case 2
+const fakeCaseTwo = new Case({
+  registrantId: fakeUser.id,
+  maternityId: maternity1.id,
+});
+const fakeNewBorn2 = new NewBorn({
+  placeOfBirth: 'Capital',
+  weight: 4,
+  gender: Gender.female,
+  condition: Condition.dead,
+  isPremature: true,
+});
+const fakeMother2 = new Mother({
+  parentType: ParentType.mother,
+  age: 22,
+  name: 'Flor',
+  lastName: 'Valencia',
+  phone: '112233',
+});
+const fakeFather2 = new Father({
+  parentType: ParentType.father,
+  age: 30,
+  name: 'Thiago',
+  lastName: 'Salas',
+  phone: '445566',
+});
+fakeCaseTwo.newBorn = fakeNewBorn2;
+fakeCaseTwo.mother = fakeMother2;
+fakeCaseTwo.father = fakeFather2;
+fakeCaseTwo.addMalformation({type: 0, name: 'Kidney hypolasia'});
+
+
+const fakeCases = [fakeCaseOne, fakeCaseTwo];
+// TODO remove this later
 const fakeCase = {
   infoGeneral: {
     id: 1223,

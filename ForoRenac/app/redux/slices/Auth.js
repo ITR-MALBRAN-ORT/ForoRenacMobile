@@ -6,8 +6,7 @@ import authWS from '../../networking/endpoints/AuthWS';
 import {setClientToken} from '../../networking/Api';
 
 //TODO remove for production
-import { MOCKS_AUTH } from '../../temp/MocksFakeData';
-
+import {MOCKS_AUTH} from '../../temp/MocksFakeData';
 
 // * ---------------  THUNKS -----------------
 export const loginUser = createAsyncThunk(
@@ -103,7 +102,8 @@ const authSlice = createSlice({
       state.avatar = avatar;
     },
     clear(state, action) {
-      (state.isAuthenticated = false), (state.token = null);
+      state.isAuthenticated = false;
+      state.token = null;
       state.id = null;
       state.email = null;
       state.first_name = null;
@@ -205,4 +205,3 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-

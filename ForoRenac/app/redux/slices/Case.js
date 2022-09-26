@@ -1,14 +1,14 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import caseWS from '../../networking/endpoints/CaseWS';
+import casesWS from '../../networking/endpoints/CasesWS';
 
 //TODO remove for production
 import { MOCKS_CASE } from '../../temp/MocksFakeData';
 
 // * ---------------  THUNKS -----------------
 export const getCase = createAsyncThunk('case/getCase', async ({id}) => {
-  const response = await caseWS.getCase({id});
+  const response = await casesWS.getCase({id});
   console.log('getCase', response.data);
   const {data} = response.data;
   return data;
@@ -16,13 +16,13 @@ export const getCase = createAsyncThunk('case/getCase', async ({id}) => {
 export const updateCase = createAsyncThunk(
   'case/updateCase',
   async ({id, data}) => {
-    const response = await caseWS.updateCase({id, data});
+    const response = await casesWS.updateCase({id, data});
     console.log('updateCase', response.data);
     return response.data.data;
   },
 );
 export const deleteCase = createAsyncThunk('case/deleteCase', async ({id}) => {
-  const response = await caseWS.deleteCase({id});
+  const response = await casesWS.deleteCase({id});
   console.log('deleteCase', response.data);
   const {data} = response.data;
   return data;

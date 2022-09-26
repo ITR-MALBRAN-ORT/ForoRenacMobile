@@ -14,4 +14,15 @@ export default casesWS = {
       caseData,
     });
   },
+  getCase: async function ({id}) {
+    return await axios.get(`/cases/${id}`);
+  },
+  updateCase: async function ({id, data}) {
+    return await axios.put(`/cases/${id}`, {
+      data,
+    });
+  },
+  deleteCase: async function ({id}) {
+    return await axios.delete(`/cases/${id}`);
+  },
 };

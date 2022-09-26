@@ -6,6 +6,8 @@ import casesReducer from './slices/Cases';
 import caseReducer from './slices/Case';
 import authReducer from './slices/Auth';
 import periodReducer from './slices/Period';
+import draftReducer from './slices/Draft';
+import maternitiesReducer from './slices/Maternities';
 
 const middlewares = [thunk];
 
@@ -15,7 +17,9 @@ export const store = configureStore(
       auth: authReducer,
       cases: casesReducer,
       case: caseReducer,
-      period: periodReducer
+      period: periodReducer,
+      draft: draftReducer,
+      maternities: maternitiesReducer,
     },
   },
   applyMiddleware(...middlewares),

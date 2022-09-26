@@ -34,6 +34,7 @@ export const addCase = createAsyncThunk('cases/addCase', async ({caseData}) => {
 const casesSlice = createSlice({
   name: 'cases',
   initialState: {
+    // TODO check if 'cases' has real use case in app
     cases: [],
     filteredCases: [],
     loading: false,
