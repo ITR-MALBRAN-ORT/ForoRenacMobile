@@ -11,7 +11,7 @@ import {
 //Custom components
 import CustomInput from '../../components/customInput/CustomInput';
 import CustomButton from '../../components/customButton/customButton';
-
+import { LOGIN_STACK } from '../../../navigation/NavigationConstants';
 // SVG vectors
 import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import i18n from '../../../assets/localization/i18n';
@@ -58,6 +58,9 @@ export default LoginScreenUI = ({
           saveValue={handlePassword}
           err={errorPassword}
         />
+        <Pressable onPress={()=>navigate(LOGIN_STACK.PASSWORD_RECOVERY_SCREEN)} style={{alignItems:'center'}}>
+            <Text style={{color:'#00ccff'}}>Forgot your password?</Text>
+        </Pressable>
         {/* Button Submit */}
         <CustomButton
           text={i18n.t('login')}

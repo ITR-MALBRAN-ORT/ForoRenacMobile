@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import authWS from '../../networking/endpoints/AuthWS';
 
-import {setClientToken} from '../../networking/Api';
+import {setClientToken} from '../../networking/api';
 
 //TODO remove for production
 import {MOCKS_AUTH} from '../../temp/MocksFakeData';

@@ -23,7 +23,7 @@ export default function LoginScreen() {
  
   function navigateTo(componentName){
       //See componentNames list in navigation/MainStack.jsx
-      console.log(componentName)
+      navigation.navigate(componentName)
   }
   function handleEmail(email){
     if(isValidateEmail(email)){
