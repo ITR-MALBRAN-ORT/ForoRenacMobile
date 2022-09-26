@@ -3,7 +3,9 @@ import {StyleSheet, Text} from 'react-native';
 import BottomTabCustom from './BottomTabCustom';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import BottomTabAdvanceButton from './BottomTabAdvanceButton';
-
+import LandingScreen from '../../ui/screens/LandingScreen/LandingScreen';
+import LandingStackNavigator from '../LandingStackNavigator';
+import LoginStackNavigator from '../LoginStackNavigator';
 // Creating Bottom Tab
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +17,7 @@ import ExampleTwo from './screens/ExampleTwo';
 const tabs = {
   tabOne: {
     tabScreenName: 'ExampleZero',
-    tabScreenComponent: ExampleZero,
+    tabScreenComponent: LandingStackNavigator,
     iconName: 'folder-open',
     label: 'casos',
   },
@@ -26,7 +28,7 @@ const tabs = {
   },
   tabTwo: {
     tabScreenName: 'ExampleTwo',
-    tabScreenComponent: ExampleTwo,
+    tabScreenComponent: LandingStackNavigator,
     iconName: 'folder-multiple',
     label: 'historial',
   },
@@ -38,6 +40,7 @@ export default function BottomTabNavigation() {
       initialRouteName={tabs.tabOne.tabScreenName}
       tabBar={props => <BottomTabCustom {...props} />}
       screenOptions={{
+        headerShown: false,
         showIcon: true,
         style: styles.navigator,
         headerShown: false,

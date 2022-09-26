@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet,Pressable  } from "react-native";
 import i18n from '../../../assets/localization/i18n';
+import { LANDING_STACK } from "../../../navigation/NavigationConstants";
 
 const STATES = {
     0: "drafted",
@@ -7,9 +8,9 @@ const STATES = {
     2: "closed"
 }
 
-const CustomTableRow = ({item}) => {
+const CustomTableRow = ({item, navigation}) => {
     return  (
-        <View style={{flexDirection:"row"}}>
+        <Pressable style={styles.rowDetail} onPress={() => navigation.navigate(LANDING_STACK.DETAIL_SCREEN)}>
             <View style={styles.columnItem}>
                 <Text style={styles.itemText}>{item.id}</Text>
             </View>
@@ -19,11 +20,14 @@ const CustomTableRow = ({item}) => {
             <View style={styles.columnItem}>
                 <Text style={styles[STATES[item.estado]]}>{i18n.t(STATES[item.estado])}</Text>
             </View>
-        </View>
+        </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
+    rowDetail: {
+        flexDirection: "row"
+    },
     columnItem: {
         justifyContent: "center",
         alignItems: "center",

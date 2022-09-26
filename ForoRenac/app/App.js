@@ -6,12 +6,10 @@ import {
 //Splash Screen module
 import SplashScreen from 'react-native-splash-screen';
 //Navigation
-import MainStack from './navigation/MainStack';
 import DrawerNavigation from './navigation/DrawerNavigation';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import  LoginStackNavigator  from './navigation/LoginStackNavigator';
-import LandingStackNavigator from './navigation/LandingStackNavigator';
 
 import { Text, View } from 'react-native';
 
