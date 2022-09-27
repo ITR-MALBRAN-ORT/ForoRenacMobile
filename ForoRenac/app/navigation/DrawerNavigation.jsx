@@ -6,7 +6,7 @@ import DrawerContent from './DrawerContent';
 import SVGForoRenac from '../assets/images/VectorForoRenac.svg';
 import SVGBell from '../assets/images/VectorBellNotification.svg';
 import { LOGIN_STACK } from './NavigationConstants';
-import ResetPasswordScreen from '../ui/screens/ResetPassword/ResetPasswordScreen';
+import ResetPasswordScreen from '../ui/screens/resetPassword/ResetPasswordScreen';
 import { useSelector } from 'react-redux';
 const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {

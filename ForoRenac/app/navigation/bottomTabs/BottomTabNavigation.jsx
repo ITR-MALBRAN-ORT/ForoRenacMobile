@@ -3,7 +3,7 @@ import {StyleSheet, Text} from 'react-native';
 import BottomTabCustom from './BottomTabCustom';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import BottomTabAdvanceButton from './BottomTabAdvanceButton';
-import LandingScreen from '../../ui/screens/LandingScreen/LandingScreen';
+import LandingScreen from '../../ui/screens/landingScreen/LandingScreen';
 import LandingStackNavigator from '../LandingStackNavigator';
 import LoginStackNavigator from '../LoginStackNavigator';
 import NewCaseStackNavigator from '../NewCaseStackNavigator';

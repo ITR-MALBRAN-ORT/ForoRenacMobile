@@ -4,11 +4,11 @@ import {
     LOGIN_STACK,
     } from './NavigationConstants';
 
-import LoginScreen from '../ui/screens/Login/LoginScreen';
-import RegisterScreen from '../ui/screens/Register/RegisterScreen';
-import PasswordRecoveryScreen from '../ui/screens/PasswordRecovery/PasswordRecoveryScreen';
-import CodeVerificationScreen from '../ui/screens/CodeVerification/CodeVerificationScreen';
-import ResetPasswordScreen from '../ui/screens/ResetPassword/ResetPasswordScreen';
+import LoginScreen from '../ui/screens/login/LoginScreen';
+import RegisterScreen from '../ui/screens/register/RegisterScreen';
+import PasswordRecoveryScreen from '../ui/screens/passwordRecovery/PasswordRecoveryScreen';
+import CodeVerificationScreen from '../ui/screens/codeVerification/CodeVerificationScreen';
+import ResetPasswordScreen from '../ui/screens/resetPassword/ResetPasswordScreen';
 const Stack = createStackNavigator();
 
 const LoginStackNavigator = () => {
