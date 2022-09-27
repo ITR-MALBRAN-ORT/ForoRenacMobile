@@ -16,3 +16,7 @@ export const validLength = (str) => {
     return !validator.isEmpty(str);
 }
 
+export const isValidPhone = (num) => {
+    return validator.isMobilePhone(num)
+}
+

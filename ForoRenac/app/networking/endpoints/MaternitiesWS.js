@@ -1,4 +1,4 @@
-import {axios} from '../Api';
+import {axios} from '../api';
 
 // * Web Service for cases
 export default maternitiesWS = {

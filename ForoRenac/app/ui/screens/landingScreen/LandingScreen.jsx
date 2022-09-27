@@ -3,8 +3,16 @@ import {View, Text, TextInput, StyleSheet, ScrollView} from 'react-native';
 import CustomTableRow from '../../components/CustomTableRow/CustomTableRow';
 import {DATA} from './data.js';
 import Feather from 'react-native-vector-icons/Feather';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCases } from '../../../redux/slices/Cases';
 const LandingScreen = ({ navigation }) => {
+  const {cases} = useSelector(state => state.cases)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getCases())
+
+  },[])
   return (
     <View style={styles.container}>
       <View>
@@ -26,7 +34,7 @@ const LandingScreen = ({ navigation }) => {
           </View>
       </View>
       <ScrollView>
-        {DATA.map((item) => {
+        {cases.map((item) => {
           return <CustomTableRow item={item} navigation={navigation} key={item.id}></CustomTableRow>
         })}
       </ScrollView>

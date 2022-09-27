@@ -1,5 +1,5 @@
 export const MOCKS_CASES = {
-  setCases: () => ({payload: fakeCases}),
+  setCases: () => ({payload: DATA}),
   setFilteredCases: () => ({payload: fakeCases}),
   addCase: () => ({payload: fakeCases[0]}),
 };
@@ -9,7 +9,7 @@ export const MOCKS_PERIOD = {
 };
 
 export const MOCKS_CASE = {
-  setCase: () => ({payload: fakeCases[0]}),
+  setCase: () => ({payload: [0]}),
 };
 
 export const MOCKS_AUTH = {
@@ -117,7 +117,7 @@ fakeCaseTwo.father = fakeFather2;
 fakeCaseTwo.addMalformation({type: 0, name: 'Kidney hypolasia'});
 
 
-const fakeCases = [fakeCaseOne, fakeCaseTwo];
+const fakeCases = newData;
 // TODO remove this later
 const fakeCase = {
   infoGeneral: {
@@ -141,3 +141,69 @@ const fakeCase = {
     desc: 'Ocurre cuando el vaso sanguíneo que sale del corazón del bebé en gestación no se separa completamente durante el crecimiento y deja conectadas a la aorta y la arteria pulmonar.',
   },
 };
+
+  const newData = [
+    infoGeneral={
+      id: 1223,
+      fecha: '05/06',
+      estado: 0,
+    },
+    datosMadre={
+      nombre: 'Luciana Rojas',
+      tel: '1130303030',
+      email: 'lucianarojas@mail.com',
+    },
+    datosNacido={
+      nombre: '-',
+      nacido: 'Vivo',
+      sexo: 'Masculino',
+      malforma: 'Tronco Arterioso',
+    },
+    malforma={
+      tipo: 'Tronco Arterioso',
+      desc: 'Ocurre cuando el vaso sanguíneo que sale del corazón del bebé en gestación no se separa completamente durante el crecimiento y deja conectadas a la aorta y la arteria pulmonar.',
+    },
+  ]
+ const DATA = [
+  {id: 1223, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1224, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1225, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1226, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1227, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1228, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1229, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1220, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1221, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1222, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1241, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1230, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1231, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1232, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1233, fecha: "09/06", estado: 2, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1234, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1236, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1237, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1239, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+]
+
+const DATACLOSED = [
+  {id: 1223, fecha: "09/06", estado: 2 },
+  {id: 1224, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2},
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+  {id: 1225, fecha: "09/06", estado: 2 },
+]

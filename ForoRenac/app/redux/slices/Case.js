@@ -9,7 +9,6 @@ import { MOCKS_CASE } from '../../temp/MocksFakeData';
 // * ---------------  THUNKS -----------------
 export const getCase = createAsyncThunk('case/getCase', async ({id}) => {
   const response = await casesWS.getCase({id});
-  console.log('getCase', response.data);
   const {data} = response.data;
   return data;
 });
@@ -53,6 +52,7 @@ const caseSlice = createSlice({
       state.loading = false;
     });
     builder.addCase(getCase.rejected, state => {
+      console.log('rejected: ', state.case)
       state.loading = false;
       //TODO remove after for production
       caseSlice.caseReducers.setCase(state, MOCKS_CASE.setCase());

@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import authWS from '../../networking/endpoints/AuthWS';
 
-import {setClientToken} from '../../networking/Api';
+import {setClientToken} from '../../networking/api';
 
 //TODO remove for production
 import {MOCKS_AUTH} from '../../temp/MocksFakeData';
@@ -59,10 +59,15 @@ export const sendRecoverCode = createAsyncThunk(
     const response = await authWS.sendRecoverCode({code});
     console.log('sendRecoverCode', response.data);
     //TODO check later what response payload receive
-    const {id, token} = response.data;
+    const {id, token, success} = response.data;
     // Consider don't handle it here, instead call it in component
-    await dispatch(getUserById({id: id}));
-    return token;
+    if(success){
+      await dispatch(getUserById({id: id}));
+      return token;
+    }else{
+      const {errorMessage} = response.data;
+      return {errorMessage, success:false}
+    }
   },
 );
 export const changePassword = createAsyncThunk(
@@ -81,17 +86,22 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     isAuthenticated: false,
-    token: null,
+    token: true,
     loading: false,
     id: null,
     email: null,
     first_name: null,
     last_name: null,
     avatar: null,
+    errorMessage: null,
+    requireNewPassword:false
   },
   reducers: {
     setToken(state, action) {
       state.token = action.payload;
+    },
+    setRequiredNewPassword(state, action){
+      state.requireNewPassword = action.payload
     },
     setUser(state, action) {
       const {id, email, first_name, last_name, avatar} = action.payload;
@@ -145,6 +155,7 @@ const authSlice = createSlice({
       // TODO remove Fake data later
       state.isAuthenticated = true;
       authSlice.caseReducers.setToken(state, MOCKS_AUTH.setToken());
+      authSlice.caseReducers.setUser(state, MOCKS_AUTH.setUser())
     });
 
     // * LOGOUT USER
@@ -178,16 +189,22 @@ const authSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(sendRecoverCode.fulfilled, (state, action) => {
-      authSlice.caseReducers.setToken(state, action);
-      state.isAuthenticated = true;
-      state.loading = false;
-      setClientToken(action.payload);
+      if(action.payload.success){
+        authSlice.caseReducers.setToken(state, action);
+        state.isAuthenticated = true;
+        state.loading = false;
+        //authSlice.caseReducers.setRequireNewPassword(state,action);
+        setClientToken(action.payload);
+      }else{
+        state.errorMessage = action.payload.errorMessage
+      }
     });
-    builder.addCase(sendRecoverCode.rejected, state => {
+    builder.addCase(sendRecoverCode.rejected, state=> {
       state.loading = false;
       // TODO remove Fake data later
       state.isAuthenticated = true;
       authSlice.caseReducers.setToken(state, MOCKS_AUTH.setToken());
+      //authSlice.caseReducers.setRequireNewPassword(state);
     });
 
     // * CHANGE PASSWORD
@@ -203,5 +220,5 @@ const authSlice = createSlice({
     });
   },
 });
-
+export const {setRequiredNewPassword} = authSlice.actions
 export default authSlice.reducer;

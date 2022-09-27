@@ -10,7 +10,7 @@ const STATES = {
 
 const CustomTableRow = ({item, navigation}) => {
     return  (
-        <Pressable style={styles.rowDetail} onPress={() => navigation.navigate(LANDING_STACK.DETAIL_SCREEN)}>
+        <Pressable style={styles.rowDetail} onPress={() => navigation.navigate(LANDING_STACK.DETAIL_SCREEN, {id:item.id})}>
             <View style={styles.columnItem}>
                 <Text style={styles.itemText}>{item.id}</Text>
             </View>
