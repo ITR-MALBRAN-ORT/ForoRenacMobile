@@ -1,10 +1,10 @@
 import { createStackNavigator } from "@react-navigation/stack"
-import DataMotherScreen from "../ui/screens/formsNewCase/DataMother/DataMotherScreen"
-import DataFatherScreen from "../ui/screens/formsNewCase/DataFather/DataFatherScreen"
+import DataMotherScreen from "../ui/screens/FormsNewCase/DataMother/DataMotherScreen"
+import DataFatherScreen from "../ui/screens/FormsNewCase/DataFather/DataFatherScreen"
 import { NEW_CASE } from "./NavigationConstants"
-import DataChildScreen from "../ui/screens/formsNewCase/DataChild/DataChildScreen"
-import DataMalformationScreen from "../ui/screens/formsNewCase/DataMalformation/DataMalformationScreen"
-import DataEstudiosScreens from "../ui/screens/formsNewCase/DataEstudios/DataEstudiosScreen"
+import DataChildScreen from "../ui/screens/FormsNewCase/DataChild/DataChildScreen"
+import DataMalformationScreen from "../ui/screens/FormsNewCase/DataMalformation/DataMalformationScreen"
+import DataEstudiosScreens from "../ui/screens/FormsNewCase/DataEstudios/DataEstudiosScreen"
 const NewCaseStackNavigator = () =>{
     const Stack = createStackNavigator()
     return(
