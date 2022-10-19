@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet, ScrollView, FlatList} from 'react-native';
 import CustomTableRow from '../../components/CustomTableRow/CustomTableRow';
+import CustomInput from '../../components/customInput/CustomInput';
 import {DATA} from './data.js';
 import Feather from 'react-native-vector-icons/Feather';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,9 +18,7 @@ const LandingScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View>
         <View style={styles.filterContainer}>
-          <TextInput style={styles.searchBar} >
-            <Feather name="search" size={24} style={styles.searchBarIcon} />
-          </TextInput>
+          <CustomInput icon={"search"} placeholder="Search" required />
           <Feather name="filter" size={24} style={styles.searchBarIcon}/>
         </View>
         <View style={styles.columnNames}>
@@ -42,12 +41,6 @@ const LandingScreen = ({ navigation }) => {
     </View>
   )
 }
-/*<ScrollView>
-        {cases.map((item) => {
-          return <CustomTableRow item={item} navigation={navigation} key={item.id}></CustomTableRow>
-        })}
-      </ScrollView> */
-
 const styles = StyleSheet.create({
   container: {
       flex: 1,

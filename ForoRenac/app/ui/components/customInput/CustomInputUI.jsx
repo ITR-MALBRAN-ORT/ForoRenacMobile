@@ -7,97 +7,87 @@ import {Text, TextInput, View, StyleSheet} from 'react-native';
 // import Fontisto from 'react-native-vector-icons/Fontisto';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
+import {colors} from '../../styles/Theme';
 
 export default CustomInputUI = props => {
-  const {
-    icon,
-    label,
-    type,
-    placeholder,
-    saveValue,
-    secureTextEntry,
-    shortInput,
-    err
-  } = props;
+  const {icon, type, placeholder, saveValue, secureTextEntry, shortInput, err} =
+    props;
 
   getIcon = () => {
     let iconFound;
-    if(icon === 'lock') {
-      iconFound = <Feather name={icon} size={24} />
-    } else if(icon === 'email-outline') {
-      iconFound = <MCIcon name={icon} size={24} />
-    } else if(icon === 'user'){
-      iconFound = <Feather name={icon} size={24} />
+    if (icon === 'lock') {
+      iconFound = <Feather name={icon} size={24} />;
+    } else if (icon === 'email-outline') {
+      iconFound = <MCIcon name={icon} size={24} />;
+    } else if (icon === 'user') {
+      iconFound = <Feather name={icon} size={24} />;
     } else {
-      iconFound = <Feather name={icon} size={24} />
+      iconFound = <Feather name={icon} size={24} />;
     }
 
     return iconFound;
   };
 
   return (
-    <View style={styles.container}>
-        <View style={styles.iconAndLabel}>
-        {getIcon(icon)}
-        <Text style={styles.label}>{label}</Text>
+    <>
+      <View style={err ? styles.inputError : styles.container}>
+        {getIcon()}
+        <TextInput
+          style={[
+            styles.input,
+            shortInput ? styles.shortInput : '',
+          ]}
+          placeholder={placeholder}
+          keyboardType={type}
+          secureTextEntry={secureTextEntry}
+          onEndEditing={e => saveValue(e.nativeEvent.text)}
+        />
       </View>
-      <TextInput
-        style={[err ? styles.inputError : styles.input, shortInput ? styles.shortInput : ""]}
-        placeholder={placeholder}
-        keyboardType={type}
-        secureTextEntry={secureTextEntry}
-        onEndEditing={e => saveValue(e.nativeEvent.text)}
-      />
-      <Text style={err ? styles.error : styles.hide}>
-        {' '}
-        {err}
-      </Text>
-    </View>
+      <Text style={err ? styles.error : styles.hide}>{err}</Text>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    marginBottom: 20,
-  },
-  iconAndLabel: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 7,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+    marginTop: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.PRIMARY,
+    borderStyle: 'solid',
   },
   shortInput: {
-    width: 120
+    width: 120,
   },
   input: {
+    flexDirection: 'row',
     height: 40,
     width: 273,
-    padding: 10,
-    paddingTop: 15,
-    backgroundColor: '#E8E8E8',
     fontSize: 15,
-    borderRadius: 5,
-    marginVertical:2
-  },
-  label: {
-    marginStart: 7,
+    marginVertical: 2,
   },
   error: {
     color: 'red',
     maxWidth: 273,
   },
   inputError: {
-    height: 40,
-    width: 273,
-    padding: 10,
-    paddingTop: 15,
-    backgroundColor: '#E8E8E8',
-    fontSize: 15,
-    borderRadius: 5,
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+    marginTop: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
+    borderRadius: 20,
+    borderWidth: 1,
     borderColor: 'red',
     borderStyle: 'solid',
-    borderWidth: 1,
-    marginVertical:2
   },
   hide: {
     display: 'none',
@@ -108,6 +98,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   estilo2: {
-    borderRadius: 15
-  }
+    borderRadius: 15,
+  },
 });
