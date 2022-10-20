@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Pressable, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
@@ -16,11 +16,11 @@ import {useDispatch, useSelector} from 'react-redux';
 const SIGN_OUT_TEXT = 'salir';
 
 const DrawerContent = props => {
+  const [Page, setPage] = useState('Landing')
   const dispatch = useDispatch();
   const {email, avatar, loading} = useSelector(
     state => state.auth,
   );
-
   // useEffect(() => {
   //   dispatch(getUserById());
   // }, []);
@@ -37,7 +37,7 @@ const DrawerContent = props => {
 
   // TODO Get linksItems from Store later
   const linksItems = [
-    {id: '5dsf6', label: 'Casos', navigateTo: 'Landing',  isActive: true},
+    {id: '5dsf6', label: 'Casos', navigateTo: 'Landing'},
     {id: '5h', label: 'Chat', navigateTo: 'Chat'},
     {id: 'h354f', label: 'Novedades', navigateTo: 'News'},
   ];
@@ -99,9 +99,12 @@ const DrawerContent = props => {
             {linksItems.map(item => (
               <DrawerCustomItem
                 key={item.id}
-                isActive={item.isActive}
+                isActive={item.navigateTo === Page}
                 label={item.label.toUpperCase()}
-                onPress={() => props.navigation.navigate(item.navigateTo)}
+                onPress={() => {
+                  setPage(item.navigateTo)
+                  props.navigation.navigate(item.navigateTo)
+                }}
               />
             ))}
           </Drawer.Section>
