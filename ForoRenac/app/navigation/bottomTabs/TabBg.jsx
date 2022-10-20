@@ -1,7 +1,8 @@
 import React from 'react';
 import Svg, {Path, SvgProps} from 'react-native-svg';
+import { colors } from '../../ui/styles/Theme';
 
-export const TabBg = ({color = '#FFFFFF', ...props}) => {
+export const TabBg = ({color = colors.WHITE, ...props}) => {
 
   return (
     <Svg  width={75} height={61} viewBox="0 0 75 61" {...props}>

@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Pressable } from 'react-native'
 import React from 'react'
+import { colors } from '../../styles/Theme'
 
 export default function CodeVerificationUi({verifyCode, handlePin, refs, error}) {
     const {pin1Ref, pin2Ref,pin3Ref,pin4Ref} =refs
@@ -48,10 +49,10 @@ export default function CodeVerificationUi({verifyCode, handlePin, refs, error})
         <View style={style.contBtn}>
             {error && <Text style={{color:'red', fontSize:12, marginBottom:20}} >{error}</Text>}
             <TouchableOpacity onPress={verifyCode} style={style.btn}>
-                <Text style={{color:'#ffffff', fontSize:20}}>Verificar Code</Text>
+                <Text style={{color:colors.WHITE, fontSize:20}}>Verificar Code</Text>
             </TouchableOpacity>
             <Pressable>
-                <Text style={{color:'#ffffff', fontSize:15, marginTop:15}}>Reenviar email</Text>
+                <Text style={{color:colors.WHITE, fontSize:15, marginTop:15}}>Reenviar email</Text>
             </Pressable>
         </View>
     </View>
@@ -66,7 +67,7 @@ const style = StyleSheet.create({
     text:{
         textAlign:'center',
         fontSize:25,
-        color:'#ffffff',
+        color:colors.WHITE,
         padding:50,
     },
     contInput:{
@@ -77,12 +78,12 @@ const style = StyleSheet.create({
     input:{
         borderBottomWidth:1,
         width:50,
-        borderBottomColor:'#ffffff'
+        borderBottomColor:colors.WHITE
     },
     inputText:{
         fontSize:40,
         textAlign:'center',
-        color:'#ffffff'
+        color:colors.WHITE
     },
 
     contBtn:{

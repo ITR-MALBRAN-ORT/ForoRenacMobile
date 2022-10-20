@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet,Pressable  } from "react-native";
 import i18n from '../../../assets/localization/i18n';
 import { LANDING_STACK } from "../../../navigation/NavigationConstants";
+import { colors } from "../../styles/Theme";
 
 const STATES = {
     0: "drafted",
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: (354 / 3),
         height: 50,
-        backgroundColor: "#fff"
+        backgroundColor: colors.WHITE
     },
     drafted: {
         color: "#9CABC2"

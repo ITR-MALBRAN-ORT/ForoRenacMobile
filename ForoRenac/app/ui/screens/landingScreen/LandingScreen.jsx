@@ -7,6 +7,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCases } from '../../../redux/slices/Cases';
+import { colors } from '../../styles/Theme';
 const LandingScreen = ({ navigation }) => {
   const [Search, setSearch] = useState(undefined)
   const {cases} = useSelector(state => state.cases)
@@ -72,10 +73,10 @@ const styles = StyleSheet.create({
       alignItems: "center",
       width: (354 / 3),
       height: 50,
-      backgroundColor: "#fff"
+      backgroundColor: colors.WHITE
   },
   columnTitle: {
-      color: "#fff"
+      color: colors.WHITE
   },
   searchBar: {
     width: 320,

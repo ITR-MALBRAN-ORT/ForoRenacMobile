@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Select from '../../../components/Select/Select'
+import { colors } from '../../../styles/Theme'
 import { sexos, nacidos, provincias } from '../../../../helpers/data'
 import { NEW_CASE } from '../../../../navigation/NavigationConstants'
 export default function DataChildUi({handle, errors, disabled, navigationTo, values}) {
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     },
     title:{
       fontSize:15,
-      color:'#fff'
+      color:colors.WHITE
     },
     form:{
       marginHorizontal:35,

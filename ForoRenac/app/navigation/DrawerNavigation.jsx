@@ -10,6 +10,7 @@ import ResetPasswordScreen from '../ui/screens/ResetPassword/ResetPasswordScreen
 import { useSelector } from 'react-redux';
 import NewsScreen from '../ui/screens/NewsScreen/NewsScreen'
 import ChatScreen from '../ui/screens/ChatScreen/ChatScreen'
+import { colors } from "../ui/styles/Theme"
 const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {
   const {requireNewPassword} = useSelector(state => state.auth)
@@ -18,7 +19,7 @@ const DrawerNavigation = () => {
       screenOptions={{
         overlayColor: 'rgba(28, 70, 112, 0.65)',
         headerTitleAlign: 'center',
-        headerTintColor: '#ffffff',
+        headerTintColor: colors.WHITE,
         headerStyle: {backgroundColor: '#1C4670',},
         headerTitle: props => <SVGForoRenac height={35} {...props}/>,
         headerRightContainerStyle: {right:20}

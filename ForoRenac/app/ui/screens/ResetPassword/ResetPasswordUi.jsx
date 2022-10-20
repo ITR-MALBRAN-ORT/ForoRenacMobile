@@ -2,6 +2,7 @@ import { View, Text, StyleSheet,TouchableOpacity,KeyboardAvoidingView ,ScrollVie
 import React from 'react'
 import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import i18n from '../../../assets/localization/i18n';
+import { colors } from '../../styles/Theme';
 export default function ResetPasswordUi({confirmNewPassword, saveNewPassword,saveRepeatPassword, errors,disabled}) {
   const {newPasswordError, repeatPasswordError} = errors
   return (
@@ -9,7 +10,7 @@ export default function ResetPasswordUi({confirmNewPassword, saveNewPassword,sav
         <KeyboardAvoidingView  behavior={Platform.OS === 'ios' ? 'padding' : null}>
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contLogo}>
-            <SVGForoRenac width={150} height={70} fill={'white'}/>
+            <SVGForoRenac width={150} height={70} fill={colors.WHITE}/>
         </View>
         <Text style={styles.tittle}>Change password</Text>
         <View style={styles.form}>
@@ -37,7 +38,7 @@ export default function ResetPasswordUi({confirmNewPassword, saveNewPassword,sav
                     onPress={confirmNewPassword}
                     >
                     
-                    <Text style={{color:'#fff', fontSize:15}}>Confirm</Text>
+                    <Text style={{color:colors.WHITE, fontSize:15}}>Confirm</Text>
                 </TouchableOpacity>
             </View>   
         </View>
@@ -60,10 +61,10 @@ const styles = StyleSheet.create({
     tittle:{
         fontSize:25,
         textTransform:'capitalize',
-        color:'#ffffff'
+        color:colors.WHITE
     },
     form:{
-        backgroundColor:'#ffffff',
+        backgroundColor:colors.WHITE,
         height:350,
         width:310,
         borderRadius:10,

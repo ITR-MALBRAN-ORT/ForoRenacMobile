@@ -3,6 +3,7 @@ import React from 'react'
 import Select from '../../../components/Select/Select'
 import { estadoEstudios } from '../../../../helpers/data'
 import { LOGIN_STACK } from '../../../../navigation/NavigationConstants'
+import { colors } from '../../../styles/Theme'
 export default function DataEstudiosUi({handle, errors, disabled, navigationTo, values}) {
     const {saveEstado} = handle
     const {estadoError} = errors
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     },
     title:{
       fontSize:15,
-      color:'#fff'
+      color:colors.WHITE
     },
     form:{
       marginHorizontal:35,

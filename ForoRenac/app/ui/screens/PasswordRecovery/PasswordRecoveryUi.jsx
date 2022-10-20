@@ -4,11 +4,13 @@ import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import CustomInputUI from '../../components/customInput/CustomInputUI';
 import { LOGIN_STACK } from '../../../navigation/NavigationConstants';
 import i18n from '../../../assets/localization/i18n';
+import { colors } from '../../styles/Theme';
+
 export default function PasswordRecoveryUi({error,handleEmail, disable, sendRecoveryEmail, navigationTo}) {
   return (
     <View style={style.container}>
     <View style={style.contLogo}>
-      <SVGForoRenac  width={150} height={70} fill={'white'}/>
+      <SVGForoRenac  width={150} height={70} fill={colors.WHITE}/>
     </View>
     <Text style={style.titulo}>Recuperar Cuenta</Text>
     <View style={style.form}>
@@ -23,7 +25,7 @@ export default function PasswordRecoveryUi({error,handleEmail, disable, sendReco
         />
     <View style={style.contBtn}>
           <Pressable onPress={sendRecoveryEmail} style={[style.btn,{backgroundColor: disable ?'red':'#1DC690'}]} disabled={disable}>
-            <Text style={{color:'#ffffff'}}>Recuperar Cuenta</Text>
+            <Text style={{color:colors.WHITE}}>Recuperar Cuenta</Text>
           </Pressable>
           <Pressable style={{marginTop:10}} onPress={()=>navigationTo(LOGIN_STACK.LOGIN_SCREEN)}>
             <Text style={{color:'#1A4653'}}>Volver al Iniciar Sesion</Text>
@@ -45,10 +47,10 @@ const style = StyleSheet.create({
     },
     titulo:{
       fontSize:25,
-      color:'#ffffff',
+      color:colors.WHITE,
     },
     form:{
-      backgroundColor:'#ffffff',
+      backgroundColor:colors.WHITE,
       width:310,
       borderRadius:10,
       padding:10,

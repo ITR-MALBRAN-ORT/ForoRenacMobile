@@ -56,9 +56,9 @@ const DrawerContent = props => {
             <View style={{marginLeft: -10, marginVertical: 10}}>
               <IonICons
                 name="close"
-                color={'white'}
+                color={colors.WHITE}
                 size={30}
-                style={{color: 'white'}}
+                style={{color: colors.WHITE}}
                 onPress={() => props.navigation.closeDrawer()}
               />
             </View>
@@ -135,7 +135,7 @@ export default DrawerContent;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.WHITE,
   },
   userInfoContainer: {
     flexDirection: 'row',

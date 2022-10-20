@@ -3,6 +3,7 @@ import React from 'react'
 import CustomInputUI from '../../../components/customInput/CustomInputUI'
 import i18n from '../../../../assets/localization/i18n'
 import { NEW_CASE } from '../../../../navigation/NavigationConstants'
+import { colors } from '../../../styles/Theme'
 export default function DataMotherUi({handle, errors, disabled, navigationTo}) {
     const {saveFullName, saveTelephone, saveEmail} = handle
     const {fullNameError, telephoneError, emailError} = errors
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     },
     title:{
       fontSize:15,
-      color:'#fff'
+      color:colors.WHITE
     },
     form:{
       marginTop:30,

@@ -7,6 +7,7 @@ import {
   Pressable,
   Text,
 } from 'react-native';
+import { colors } from '../../styles/Theme';
 
 //Custom components
 import CustomInput from '../../components/customInput/CustomInput';
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
   },
   card: {
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.WHITE,
     padding: 25,
     borderRadius: 7,
   },
