@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Pressable, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
@@ -8,7 +8,7 @@ import IonICons from 'react-native-vector-icons/Ionicons';
 import avatarDefault from '../assets/images/avatar.png';
 import DrawerCustomItem from './DrawerCustomItem';
 import CustomButtonSecondary from '../ui/components/customButton/customButtonSecondary';
-
+import { colors } from '../ui/styles/Theme';
 // Redux
 import {useDispatch, useSelector} from 'react-redux';
 // import {getUserById} from '../redux/slices/User';
@@ -16,11 +16,11 @@ import {useDispatch, useSelector} from 'react-redux';
 const SIGN_OUT_TEXT = 'salir';
 
 const DrawerContent = props => {
+  const [Page, setPage] = useState('Landing')
   const dispatch = useDispatch();
   const {email, avatar, loading} = useSelector(
     state => state.auth,
   );
-
   // useEffect(() => {
   //   dispatch(getUserById());
   // }, []);
@@ -38,8 +38,8 @@ const DrawerContent = props => {
   // TODO Get linksItems from Store later
   const linksItems = [
     {id: '5dsf6', label: 'Casos', navigateTo: 'Landing'},
-    {id: '5h', label: 'Notificaciones', navigateTo: 'Landing', isActive: true},
-    {id: 'h354f', label: 'Novedades', navigateTo: 'Landing'},
+    {id: '5h', label: 'Chat', navigateTo: 'Chat'},
+    {id: 'h354f', label: 'Novedades', navigateTo: 'News'},
   ];
 
   signOut = () => {
@@ -78,9 +78,9 @@ const DrawerContent = props => {
                   </View>
                   <IonICons
                     name="arrow-forward-circle-outline"
-                    color={'white'}
+                    color={colors.PRIMARY}
                     size={30}
-                    style={{color: 'white', marginLeft: 15}}
+                    style={{color: colors.PRIMARY, marginLeft: 15}}
                   />
                 </View>
               </TouchableOpacity>
@@ -99,9 +99,12 @@ const DrawerContent = props => {
             {linksItems.map(item => (
               <DrawerCustomItem
                 key={item.id}
-                isActive={item.isActive}
+                isActive={item.navigateTo === Page}
                 label={item.label.toUpperCase()}
-                onPress={() => props.navigation.navigate(item.navigateTo)}
+                onPress={() => {
+                  setPage(item.navigateTo)
+                  props.navigation.navigate(item.navigateTo)
+                }}
               />
             ))}
           </Drawer.Section>
@@ -116,10 +119,10 @@ const DrawerContent = props => {
               name="exit-outline"
               color={color}
               size={size}
-              style={{marginRight: -25, color: 'white'}}
+              style={{marginRight: -25, color: colors.PRIMARY}}
             />
           )}
-          labelStyle={{color: 'white'}}
+          labelStyle={{color: colors.PRIMARY}}
           label={SIGN_OUT_TEXT.toUpperCase()}
           onPress={() => {
             signOut();
@@ -135,7 +138,7 @@ export default DrawerContent;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1C4670',
+    backgroundColor: '#fff',
   },
   userInfoContainer: {
     flexDirection: 'row',
@@ -152,13 +155,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
-    color: '#E8E8E8',
+    color: colors.PRIMARY,
   },
   caption: {
     fontSize: 14,
     marginTop: -10,
     fontFamily: 'Montserrat-Medium',
-    color: '#278AB0',
+    color: colors.PRIMARY,
     fontWeight: '500',
   },
   row: {

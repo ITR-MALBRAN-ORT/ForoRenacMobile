@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, TextInput, StyleSheet, ScrollView, FlatList} from 'react-native';
 import CustomTableRow from '../../components/CustomTableRow/CustomTableRow';
 import {DATA} from './data.js';
 import Feather from 'react-native-vector-icons/Feather';
@@ -33,15 +33,20 @@ const LandingScreen = ({ navigation }) => {
               <Text style={styles.columnTitle}>Estado caso</Text>
           </View>
       </View>
-      <ScrollView>
-        {cases.map((item) => {
-          return <CustomTableRow item={item} navigation={navigation} key={item.id}></CustomTableRow>
-        })}
-      </ScrollView>
+      <FlatList 
+        data={cases}
+        renderItem={CustomTableRow}
+        keyExtractor={item => item.id}
+      />
     </View>
     </View>
   )
 }
+/*<ScrollView>
+        {cases.map((item) => {
+          return <CustomTableRow item={item} navigation={navigation} key={item.id}></CustomTableRow>
+        })}
+      </ScrollView> */
 
 const styles = StyleSheet.create({
   container: {

@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
+import { colors } from '../../styles/Theme';
 
 export default CustomButtonSecondary = ({text, onPress, disabled}) => {
   return (
@@ -21,7 +22,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom:10,
-    marginTop:20
+    marginTop:20,
+    borderWidth: 1,
+    borderColor: colors.PRIMARY,
+    borderRadius: 20,
   },
   button: {
     minWidth: '97%',
@@ -30,9 +34,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 22,
     backgroundColor: 'transparent',
-    borderColor: 'white',
-    borderStyle:'solid',
-    borderWidth: 1,
     paddingVertical: 3,
     paddingHorizontal: 10
   },
@@ -49,6 +50,6 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    color: 'white',
+    color: colors.PRIMARY,
   },
 });
