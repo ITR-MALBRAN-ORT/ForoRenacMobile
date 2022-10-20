@@ -10,7 +10,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {colors} from '../../styles/Theme';
 
 export default CustomInputUI = props => {
-  const {icon, type, placeholder, saveValue, secureTextEntry, shortInput, err} =
+  const {icon, type, placeholder,value, onEndEditing, secureTextEntry, shortInput, errorMessage} =
     props;
 
   getIcon = () => {
@@ -29,8 +29,8 @@ export default CustomInputUI = props => {
   };
 
   return (
-    <>
-      <View style={err ? styles.inputError : styles.container}>
+    <View style={{flexDirection: "column"}}>
+      <View style={errorMessage ? styles.inputError : styles.container}>
         {getIcon()}
         <TextInput
           style={[
@@ -39,12 +39,13 @@ export default CustomInputUI = props => {
           ]}
           placeholder={placeholder}
           keyboardType={type}
+          value={value}
           secureTextEntry={secureTextEntry}
-          onEndEditing={e => saveValue(e.nativeEvent.text)}
+          onChange={e => onEndEditing(e.nativeEvent.text)}
         />
       </View>
-      <Text style={err ? styles.error : styles.hide}>{err}</Text>
-    </>
+      <Text style={errorMessage ? styles.error : styles.hide}>{errorMessage}</Text>
+    </View>
   );
 };
 
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
+    marginBottom: 10,
     marginTop: 20,
     paddingRight: 10,
     paddingLeft: 10,
@@ -75,12 +76,14 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     maxWidth: 273,
+    marginBottom: 10,
+    paddingLeft: 10,
+    textAlignVertical: "center"
   },
   inputError: {
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
     marginTop: 20,
     paddingRight: 10,
     paddingLeft: 10,

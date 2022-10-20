@@ -5,20 +5,21 @@ import CustomInput from '../../components/customInput/CustomInput';
 import {DATA} from './data.js';
 import Feather from 'react-native-vector-icons/Feather';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getCases } from '../../../redux/slices/Cases';
 const LandingScreen = ({ navigation }) => {
+  const [Search, setSearch] = useState(undefined)
   const {cases} = useSelector(state => state.cases)
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(getCases())
-
   },[])
+  
   return (
     <View style={styles.container}>
       <View>
         <View style={styles.filterContainer}>
-          <CustomInput icon={"search"} placeholder="Search" required />
+          <CustomInput icon={"search"} placeholder="Search" required type="email-address" value={Search} saveValue={setSearch} />
           <Feather name="filter" size={24} style={styles.searchBarIcon}/>
         </View>
         <View style={styles.columnNames}>
@@ -95,3 +96,9 @@ const styles = StyleSheet.create({
 });
 
 export default LandingScreen;
+
+/*.sort((a,b)=>{
+          a = new Date(a.Fecha);
+          b = new Date(b.Fecha);
+          return a.getTime() - b.getTime();
+        }) */

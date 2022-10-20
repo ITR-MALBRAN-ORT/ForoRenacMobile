@@ -1,5 +1,5 @@
 export const DATA = [
-    {id: 1223, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+    {id: 1223, fecha: "09/05", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
     {id: 1224, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
     {id: 1225, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
     {id: 1226, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
@@ -17,7 +17,7 @@ export const DATA = [
     {id: 1234, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
     {id: 1236, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
     {id: 1237, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-    {id: 1239, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+    {id: 1239, fecha: "09/07", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
 ]
 
 export const DATACLOSED = [
