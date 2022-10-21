@@ -61,14 +61,14 @@ const casesSlice = createSlice({
     });
     builder.addCase(getCases.rejected, state => {
       state.loading = false;
-      let a = MOCKS_CASES.setCases()
-      a.payload.sort((a, b) => {
+      let casosSorted = MOCKS_CASES.setCases()
+      casosSorted.payload.sort((a, b) => {
         fa = new Date(a.fecha);
         fb = new Date(b.fecha);
         return fa.getTime() - fb.getTime();
       })
       //TODO remove for production
-      casesSlice.caseReducers.setCases(state, a);
+      casesSlice.caseReducers.setCases(state, casosSorted);
     });
     // * GET CASES BY FIELD
     builder.addCase(getCasesByField.pending, state => {
