@@ -17,10 +17,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useEffect, useState} from 'react';
 import {getCases} from '../../../redux/slices/Cases';
 import {colors} from '../../styles/Theme';
+import Filters from '../../components/Filters/Filters';
 const LandingScreen = ({navigation}) => {
   const [Search, setSearch] = useState(undefined);
   const {cases} = useSelector(state => state.cases);
   const {first_name} = useSelector(state => state.auth);
+  const [Filter, setFilter] = useState("Casos")
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCases());
@@ -50,6 +52,11 @@ const LandingScreen = ({navigation}) => {
           <Text style={styles.ButtonText}>Agregar Caso</Text>
         </TouchableOpacity>
       </View>
+      <Filters 
+        options={["Casos", "Casos por revisar", "Historial de casos"]}
+        selected={Filter}
+        setter={setFilter}
+      />
     </View>
   );
 };
