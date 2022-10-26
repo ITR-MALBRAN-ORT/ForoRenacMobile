@@ -20,13 +20,14 @@ import CustomInputUI from '../../components/customInput/CustomInputUI';
 
 export default LoginScreenUI = ({
   handleSubmit,
-  handleEmail,
-  handlePassword,
-  errorPassword,
-  errorEmail,
+  handle,
+  error,
   disabled,
   navigate,
 }) => {
+  
+  const {handleEmail, handlePassword} = handle
+  const {errorEmail, errorPassword} = error
 
   return (
     <KeyboardAvoidingView

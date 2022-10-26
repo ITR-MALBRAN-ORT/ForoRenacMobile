@@ -52,12 +52,13 @@ export default CustomInputUI = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 10,
     marginTop: 20,
-    paddingRight: 10,
-    paddingLeft: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: colors.PRIMARY,
@@ -69,13 +70,13 @@ const styles = StyleSheet.create({
   input: {
     flexDirection: 'row',
     height: 40,
-    width: 273,
+    width: "100%",
     fontSize: 15,
     marginVertical: 2,
   },
   error: {
     color: 'red',
-    maxWidth: 273,
+    width: "100%",
     marginBottom: 10,
     paddingLeft: 10,
     textAlignVertical: "center"

@@ -8,6 +8,7 @@ import SVGBell from '../assets/images/VectorBellNotification.svg';
 import { LOGIN_STACK } from './NavigationConstants';
 import ResetPasswordScreen from '../ui/screens/ResetPassword/ResetPasswordScreen';
 import { useSelector } from 'react-redux';
+import LandingStackNavigator from './LandingStackNavigator'
 import NewsScreen from '../ui/screens/NewsScreen/NewsScreen'
 import ChatScreen from '../ui/screens/ChatScreen/ChatScreen'
 import { colors } from "../ui/styles/Theme"
@@ -29,7 +30,7 @@ const DrawerNavigation = () => {
       {/* You can nest other navigations components (Tab or Stack) */}
       <Drawer.Screen
         name="Landing"
-        component={BottomTabNavigation}
+        component={LandingStackNavigator}
       />
       <Drawer.Screen
         name="News"

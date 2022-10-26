@@ -18,7 +18,7 @@ import CustomButton from '../../components/customButton/customButton';
 import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import i18n from '../../../assets/localization/i18n';
 
-export default LoginScreenUI = ({
+export default RegisterScreenUI = ({
   handleSubmit,
   handle,
   errors, 
