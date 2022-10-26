@@ -18,6 +18,7 @@ import {useEffect, useState} from 'react';
 import {getCases} from '../../../redux/slices/Cases';
 import {colors} from '../../styles/Theme';
 import Filters from '../../components/Filters/Filters';
+
 const LandingScreen = ({navigation}) => {
   const [Search, setSearch] = useState(undefined);
   const {cases} = useSelector(state => state.cases);
@@ -27,7 +28,9 @@ const LandingScreen = ({navigation}) => {
   useEffect(() => {
     dispatch(getCases());
   }, []);
-
+  const Item = ({item})=>{
+    return <CustomTableRow item={item} navigation={navigation} />
+  }
   return (
     <View style={styles.container}>
       <View style={styles.filterContainer}>
@@ -56,6 +59,12 @@ const LandingScreen = ({navigation}) => {
         options={["Casos", "Casos por revisar", "Historial de casos"]}
         selected={Filter}
         setter={setFilter}
+      />
+      <FlatList 
+        data={cases}
+        renderItem={Item }
+        navigation={navigation}
+        keyExtractor={item => item.id}
       />
     </View>
   );

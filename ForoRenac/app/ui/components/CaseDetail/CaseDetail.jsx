@@ -35,6 +35,9 @@ const CaseDetail = () => {
           <Pressable style={[styles.btn, styles.btnSuccess]}>
             <Text style={styles.btnLabel}>Guardar</Text>
           </Pressable>
+          <Pressable style={[styles.btn, styles.btnPrincipal]}>
+            <Text style={styles.btnLabel}>Enviar</Text>
+          </Pressable>
           </View>
         </ScrollView>
     </View>
@@ -90,6 +93,9 @@ const styles = StyleSheet.create({
   },
   btnDanger: {
     backgroundColor: "#BF4B5E"
+  },
+  btnPrincipal:{
+    backgroundColor: colors.PRIMARY
   }
 });
 
