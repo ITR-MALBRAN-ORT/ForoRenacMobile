@@ -22,8 +22,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 20,
         marginBottom: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
     },
     option:{
+        flex: 1,
         padding: 10,
         marginLeft: 5,
         marginRight: 5,

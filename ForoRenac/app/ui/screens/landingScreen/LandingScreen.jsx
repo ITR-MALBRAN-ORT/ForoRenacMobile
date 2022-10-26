@@ -23,20 +23,25 @@ const LandingScreen = ({navigation}) => {
   const [Search, setSearch] = useState(undefined);
   const {cases} = useSelector(state => state.cases);
   const {first_name} = useSelector(state => state.auth);
-  const [Filter, setFilter] = useState("Casos")
+  const [Filter, setFilter] = useState('Casos');
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCases());
   }, []);
-  const Item = ({item})=>{
-    return <CustomTableRow item={item} navigation={navigation} />
-  }
+  const Item = ({item}) => {
+    return <CustomTableRow item={item} navigation={navigation} />;
+  };
   return (
     <View style={styles.container}>
       <View style={styles.filterContainer}>
-        <Text style={styles.Greeting}>Hola, {first_name || "Nombre"}!</Text>
-        <View style={styles.IconContainer}>
-          <Feather size={24} name="calendar" />
+        <Text style={styles.Greeting}>Hola, {first_name || 'Nombre'}!</Text>
+        <View style={{flexDirection:"row"}}>
+          <View style={styles.IconContainer}>
+            <Feather size={24} name="filter" />
+          </View>
+          <View style={styles.IconContainer}>
+            <Feather size={24} name="calendar" />
+          </View>
         </View>
       </View>
       <View style={styles.filterContainer}>
@@ -49,22 +54,25 @@ const LandingScreen = ({navigation}) => {
           saveValue={setSearch}
         />
       </View>
-      <View style={{width: '100%',paddingLeft: 20, paddingRight: 20}}>
-        <TouchableOpacity style={styles.addButton} onPress={()=>navigation.navigate("FORM")}>
+      <View style={{width: '100%', paddingLeft: 20, paddingRight: 20}}>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => navigation.navigate('FORM')}>
           <Feather size={24} name="plus-circle" color={colors.WHITE} />
           <Text style={styles.ButtonText}>Agregar Caso</Text>
         </TouchableOpacity>
       </View>
-      <Filters 
-        options={["Casos", "Casos por revisar", "Historial de casos"]}
+      <Filters
+        options={['Casos', 'Casos por revisar', 'Historial de casos']}
         selected={Filter}
         setter={setFilter}
       />
-      <FlatList 
+      <FlatList
         data={cases}
-        renderItem={Item }
+        renderItem={Item}
         navigation={navigation}
         keyExtractor={item => item.id}
+        style={{width: "90%",height: "100%", flex: 1}}
       />
     </View>
   );
@@ -77,44 +85,6 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 100,
   },
-  columnNames: {
-    height: 50,
-    borderTopLeftRadius: 15,
-    flexDirection: 'row',
-    textAlign: 'center',
-    borderTopRightRadius: 5,
-    borderTopLeftRadius: 5,
-    overflow: 'hidden',
-  },
-  columnName: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 354 / 3,
-    height: 50,
-    backgroundColor: '#287AB0',
-  },
-  columnItem: {
-    color: '#287AB0',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 354 / 3,
-    height: 50,
-    backgroundColor: colors.WHITE,
-  },
-  columnTitle: {
-    color: colors.WHITE,
-  },
-  searchBar: {
-    width: 320,
-    height: 44,
-    backgroundColor: '#E8E8E8',
-    borderRadius: 22,
-    marginTop: 13,
-    marginBottom: 13,
-  },
-  searchBarIcon: {
-    color: '#1C4670',
-  },
   filterContainer: {
     width: '100%',
     flexDirection: 'row',
@@ -122,6 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 20,
     paddingRight: 20,
+    marginTop: 20,
   },
   IconContainer: {
     borderRadius: 50,
@@ -140,15 +111,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 20,
     borderRadius: 10,
-    alignItems: "center"
+    alignItems: 'center',
   },
-  ButtonText:{
+  ButtonText: {
     color: colors.WHITE,
     marginLeft: 5,
-    marginRight:5,
+    marginRight: 5,
     fontSize: 14,
-    fontWeight: "600",
-  }
+    fontWeight: '600',
+  },
 });
 
 export default LandingScreen;

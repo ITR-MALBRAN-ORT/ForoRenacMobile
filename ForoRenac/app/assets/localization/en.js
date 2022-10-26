@@ -17,4 +17,7 @@ export default {
   registered: 'Registered',
   closed: 'Closed',
   requiredField:'Required Field',
+  sent: 'Sent',
+  review: 'Review',
+  historial: 'Historial',
 };
