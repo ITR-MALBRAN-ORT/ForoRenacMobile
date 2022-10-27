@@ -24,13 +24,23 @@ const LandingScreen = ({navigation}) => {
   const {cases} = useSelector(state => state.cases);
   const {first_name} = useSelector(state => state.auth);
   const [Filter, setFilter] = useState('Casos');
+  const STATES = {
+    0: 'drafted',
+    1: 'sent',
+    2: 'review',
+    3: 'historial',
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCases());
   }, []);
-  const Item = ({item}) => {
-    return <CustomTableRow item={item} navigation={navigation} />;
-  };
+  const filterFunction = (e,i)=>{
+    if((Filter ==='Casos' && (STATES[e.estado] !== 'drafted' && STATES[e.estado] !== 'sent') )
+    || (Filter === 'Casos por revisar' && STATES[e.estado] !== 'review')
+    || (Filter === 'Historial de casos' && STATES[e.estado] !== 'historial')) return false
+    return true
+  }
+  const Item = ({item}) => <CustomTableRow item={item} navigation={navigation} />
   return (
     <View style={styles.container}>
       <View style={styles.filterContainer}>
@@ -68,11 +78,11 @@ const LandingScreen = ({navigation}) => {
         setter={setFilter}
       />
       <FlatList
-        data={cases}
+        data={cases.filter(filterFunction)}
         renderItem={Item}
         navigation={navigation}
         keyExtractor={item => item.id}
-        style={{width: "90%",height: "100%", flex: 1}}
+        style={{width: "100%", flex: 1, paddingLeft: "5%", paddingRight: "5%"}}
       />
     </View>
   );
