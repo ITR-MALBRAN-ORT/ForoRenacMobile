@@ -22,6 +22,7 @@ import {colors} from '../../styles/Theme';
 import FiltersComponent from '../../components/Filters/Filters';
 import CustomRadio from '../../components/CustomRadio/CustomRadio';
 import DatePicker from 'react-native-date-picker';
+import { color } from 'react-native-reanimated';
 
 const LandingScreen = ({navigation}) => {
   const [Search, setSearch] = useState(undefined);
@@ -113,13 +114,49 @@ const LandingScreen = ({navigation}) => {
         selected={Filter}
         setter={setFilter}
       />
-      <FlatList
-        data={cases.filter(filterFunction)}
-        renderItem={Item}
-        navigation={navigation}
-        keyExtractor={item => item.id}
-        style={{width: '100%', flex: 1, paddingLeft: '5%', paddingRight: '5%'}}
-      />
+      {Filter === 'Casos' ? (
+        <>
+          <Text style={styles.casesTitle}>Drafted</Text>
+          <FlatList
+            data={cases.filter(e => STATES[e.estado] === 'drafted')}
+            renderItem={Item}
+            navigation={navigation}
+            keyExtractor={item => item.id}
+            style={{
+              width: '100%',
+              flex: 1,
+              paddingLeft: '5%',
+              paddingRight: '5%',
+            }}
+          />
+          <Text style={styles.casesTitle}>Sent</Text>
+          <FlatList
+            data={cases.filter(e => STATES[e.estado] === 'sent')}
+            renderItem={Item}
+            navigation={navigation}
+            keyExtractor={item => item.id}
+            style={{
+              width: '100%',
+              flex: 1,
+              paddingLeft: '5%',
+              paddingRight: '5%',
+            }}
+          />
+        </>
+      ) : (
+        <FlatList
+          data={cases.filter(filterFunction)}
+          renderItem={Item}
+          navigation={navigation}
+          keyExtractor={item => item.id}
+          style={{
+            width: '100%',
+            flex: 1,
+            paddingLeft: '5%',
+            paddingRight: '5%',
+          }}
+        />
+      )}
       <Modal
         animationType="slide"
         transparent={true}
@@ -128,7 +165,7 @@ const LandingScreen = ({navigation}) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Filters</Text>
-            <Text style={styles.subtitle}>Fecha</Text>
+            <Text style={styles.subtitle}>Date</Text>
             <View style={{alignSelf: 'flex-start', marginTop: 10}}>
               <View
                 style={{
@@ -141,18 +178,30 @@ const LandingScreen = ({navigation}) => {
                     title="Min"
                     onPress={() => setShowFechas({...ShowFechas, min: true})}
                   />
-                  <Text>{Filters.Periodo.min ? Filters.Periodo.min.getFullYear() + "/" +
-                  (Filters.Periodo.min.getMonth() + 1)+ "/" +
-                  Filters.Periodo.min.getDate() : "Ninguna"}</Text>
+                  <Text>
+                    {Filters.Periodo.min
+                      ? Filters.Periodo.min.getFullYear() +
+                        '/' +
+                        (Filters.Periodo.min.getMonth() + 1) +
+                        '/' +
+                        Filters.Periodo.min.getDate()
+                      : 'None'}
+                  </Text>
                 </View>
                 <View>
                   <Button
                     title="Max"
                     onPress={() => setShowFechas({...ShowFechas, max: true})}
                   />
-                  <Text>{Filters.Periodo.max ? Filters.Periodo.max.getFullYear() + "/" +
-                  (Filters.Periodo.max.getMonth() + 1)+ "/" +
-                  Filters.Periodo.max.getDate() : "Ninguna"}</Text>
+                  <Text>
+                    {Filters.Periodo.max
+                      ? Filters.Periodo.max.getFullYear() +
+                        '/' +
+                        (Filters.Periodo.max.getMonth() + 1) +
+                        '/' +
+                        Filters.Periodo.max.getDate()
+                      : 'None'}
+                  </Text>
                 </View>
               </View>
               <DatePicker
@@ -204,7 +253,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    marginBottom: 100,
   },
   filterContainer: {
     width: '100%',
@@ -275,6 +323,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
   },
+  casesTitle:{
+    alignSelf: "flex-start", 
+    fontSize: 18,
+    marginLeft: 20, 
+    color: colors.PRIMARY,
+    fontWeight: "600",
+    marginBottom: 5
+  }
 });
 
 export default LandingScreen;

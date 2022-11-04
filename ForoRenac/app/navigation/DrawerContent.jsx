@@ -40,6 +40,7 @@ const DrawerContent = props => {
     {id: '5dsf6', label: 'Casos', navigateTo: 'Landing',  isActive: true},
     {id: '5h', label: 'Chat', navigateTo: 'Chat'},
     {id: 'h354f', label: 'Novedades', navigateTo: 'News'},
+    {id: 'h341454f', label: 'Notificar nacimientos'}
   ];
 
   signOut = () => {
