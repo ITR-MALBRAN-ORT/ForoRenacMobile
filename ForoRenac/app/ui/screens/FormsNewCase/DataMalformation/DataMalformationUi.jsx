@@ -3,6 +3,7 @@ import React from 'react'
 import { malformations } from '../../../../helpers/data'
 import Select from '../../../components/Select/Select'
 import { NEW_CASE } from '../../../../navigation/NavigationConstants'
+import { colors } from '../../../styles/Theme'
 export default function DataMalformationUi({handle, errors, disabled, navigationTo, values}) {
     const {saveDescription, saveMalformation} = handle
     const {malformationError, descriptionError} = errors
@@ -15,7 +16,7 @@ export default function DataMalformationUi({handle, errors, disabled, navigation
     <View style={styles.form}>
       <Select items={malformations}  selectedValue={malformation} onValueChange={saveMalformation} title={'Type Malformation'} err={malformationError}></Select> 
       <View>
-        <Text style={[styles.title, {color:'#000000', marginVertical:10}]}>Description</Text>
+        <Text style={[styles.title, {color:colors.BLACK, marginVertical:10}]}>Description</Text>
         <TextInput
             multiline
             style={styles.multiline}
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     },
     title:{
       fontSize:15,
-      color:'#fff'
+      color:colors.WHITE
     },
     form:{
       marginHorizontal:35,
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
       alignItems:'center',
     },
     multiline:{
-        borderColor: '#000000',
+        borderColor: colors.BLACK,
         borderWidth: 1,
     }
   })

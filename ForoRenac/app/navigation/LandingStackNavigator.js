@@ -5,6 +5,7 @@ import {
     } from './NavigationConstants';
 import LandingScreen from '../ui/screens/landingScreen/LandingScreen';
 import CaseDetail from '../ui/components/CaseDetail/CaseDetail';
+import NewCaseStackNavigator from './NewCaseStackNavigator';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ const LandingStackNavigator = () => {
         <Stack.Screen
           name={LANDING_STACK.DETAIL_SCREEN}
           component={CaseDetail}
+          options={{headerShown:false}}
+        />
+        <Stack.Screen
+          name='FORM'
+          component={NewCaseStackNavigator}
           options={{headerShown:false}}
         />
     </Stack.Navigator>

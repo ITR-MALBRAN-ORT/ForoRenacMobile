@@ -1,8 +1,10 @@
 import {View, StyleSheet} from 'react-native';
 import React from 'react';
+import {colors} from "../../ui/styles/Theme"
 
 // BottomTabBar
 import {BottomTabBar} from '@react-navigation/bottom-tabs';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const BottomTabCustom = props => {
   return (
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    shadowColor: '#000',
+    shadowColor: colors.BLACK,
     shadowOffset: {
       width: 0,
       height: 1,

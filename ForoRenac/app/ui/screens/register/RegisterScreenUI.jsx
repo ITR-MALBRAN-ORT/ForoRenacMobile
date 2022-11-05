@@ -8,6 +8,7 @@ import {
   Pressable,
   Text
 } from 'react-native';
+import { colors } from '../../styles/Theme';
 
 //Custom components
 import CustomInputUI from '../../components/customInput/CustomInputUI';
@@ -17,7 +18,7 @@ import CustomButton from '../../components/customButton/customButton';
 import SVGForoRenac from '../../../assets/images/VectorForoRenac.svg';
 import i18n from '../../../assets/localization/i18n';
 
-export default LoginScreenUI = ({
+export default RegisterScreenUI = ({
   handleSubmit,
   handle,
   errors, 
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1C4670',
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: colors.WHITE,
     padding: 25,
     borderRadius: 7,
     marginBottom: 35

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCase } from '../../../redux/slices/Case';
 import { useRoute } from "@react-navigation/native";
 import { useEffect } from "react";
+import { colors } from "../../styles/Theme"
 const CaseDetail = () => {
   const {params}= useRoute()
   const {} = useSelector(state => state.case)
@@ -34,6 +35,9 @@ const CaseDetail = () => {
           <Pressable style={[styles.btn, styles.btnSuccess]}>
             <Text style={styles.btnLabel}>Guardar</Text>
           </Pressable>
+          <Pressable style={[styles.btn, styles.btnPrincipal]}>
+            <Text style={styles.btnLabel}>Enviar</Text>
+          </Pressable>
           </View>
         </ScrollView>
     </View>
@@ -60,11 +64,11 @@ const styles = StyleSheet.create({
   headerTitle: {
     width: "100%",
     textAlign: "center",
-    color: "#fff"
+    color: colors.WHITE
   },
   headerIcon: {
     transform: [{translateX: -40}],
-    color: "#fff"
+    color: colors.WHITE
   },
   btnGroup: {
     flexDirection: "row",
@@ -80,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   btnLabel: {
-    color: "#fff",
+    color: colors.WHITE,
     fontWeight: "bold",
     fontSize: 14
   },
@@ -89,6 +93,9 @@ const styles = StyleSheet.create({
   },
   btnDanger: {
     backgroundColor: "#BF4B5E"
+  },
+  btnPrincipal:{
+    backgroundColor: colors.PRIMARY
   }
 });
 

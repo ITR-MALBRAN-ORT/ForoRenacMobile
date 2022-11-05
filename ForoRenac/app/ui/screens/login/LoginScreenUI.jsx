@@ -7,6 +7,7 @@ import {
   Pressable,
   Text,
 } from 'react-native';
+import { colors } from '../../styles/Theme';
 
 //Custom components
 import CustomInput from '../../components/customInput/CustomInput';
@@ -19,13 +20,14 @@ import CustomInputUI from '../../components/customInput/CustomInputUI';
 
 export default LoginScreenUI = ({
   handleSubmit,
-  handleEmail,
-  handlePassword,
-  errorPassword,
-  errorEmail,
+  handle,
+  error,
   disabled,
   navigate,
 }) => {
+  
+  const {handleEmail, handlePassword} = handle
+  const {errorEmail, errorPassword} = error
 
   return (
     <KeyboardAvoidingView
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
   },
   card: {
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.WHITE,
     padding: 25,
     borderRadius: 7,
   },

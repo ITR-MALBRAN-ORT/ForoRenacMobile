@@ -1,7 +1,7 @@
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import React from 'react';
 import { TabBg } from './TabBg';
-
+import { colors } from '../../ui/styles/Theme';
 
 
 const BottomTabAdvanceButton = ({bgColor,icon, ...props}) => {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     fontSize: 35,
-    color: 'white',
+    color: colors.WHITE,
   },
   extraLayer: {
     backgroundColor: '#6e6127',

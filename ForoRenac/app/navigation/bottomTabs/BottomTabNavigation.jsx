@@ -7,6 +7,7 @@ import LandingScreen from '../../ui/screens/landingScreen/LandingScreen';
 import LandingStackNavigator from '../LandingStackNavigator';
 import LoginStackNavigator from '../LoginStackNavigator';
 import NewCaseStackNavigator from '../NewCaseStackNavigator';
+import { colors } from '../../ui/styles/Theme';
 // Creating Bottom Tab
 const Tab = createBottomTabNavigator();
 
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     elevation: 30,
   },
   bar: {
-    color: 'white',
+    color: colors.WHITE,
   },
   tabBarIcon: {
     isFocus: '#1C4670',
@@ -151,6 +152,6 @@ const styles = StyleSheet.create({
   },
   buttonIcon: {
     fontSize: 35,
-    color: 'white',
+    color: colors.WHITE,
   },
 });

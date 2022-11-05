@@ -2,6 +2,8 @@ import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import {Picker} from '@react-native-picker/picker';
 import { validLength } from '../../../helpers/helpers';
+import { colors } from '../../styles/Theme';
+
 export default function Select({items, selectedValue, onValueChange,title,err}) {
 
 function renderItems(){
@@ -16,7 +18,7 @@ function checkError(){
   return (
     <View style={{margin:5}}>
     <Text style={styles.title}>{title}</Text>
-     <View style={[styles.select,{borderColor: err ? 'red' : '#000'}]}>
+     <View style={[styles.select,{borderColor: err ? 'red' : colors.BLACK}]}>
        <Picker selectedValue={selectedValue} onValueChange={(itemValue) =>onValueChange(itemValue)}>
             <Picker.Item label={`Seleccionar ${title}`} value={null}/>
             {renderItems()}

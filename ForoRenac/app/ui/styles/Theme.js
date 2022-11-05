@@ -5,7 +5,9 @@ const colors = {
     SECONDARY: "#278AB0",
     ALERT: "#BF4B5E",
     SUCCESS: "#1DC690",
-    DISABLED: "#9CABC2"
+    DISABLED: "#9CABC2",
+    WHITE: "#fff",
+    BLACK: "#000"
 }
 
 const fonts = {

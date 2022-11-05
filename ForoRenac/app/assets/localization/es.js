@@ -8,7 +8,7 @@ export default {
   signUp: 'Crear cuenta',
   userName: 'Nombre completo',
   password: 'Contraseña',
-  email: "Email",
+  email: 'Email',
   repeatPassword: 'Repita su contraseña',
   address: 'Dirección',
   floor: 'Piso',
@@ -16,5 +16,8 @@ export default {
   drafted: 'En borrador',
   registered: 'Registrado',
   closed: 'Cerrado',
-  requiredField:'Campo Obligatorio',
+  requiredField: 'Campo Obligatorio',
+  sent: 'Enviado',
+  review: 'Revisar',
+  historial: 'Historial',
 };

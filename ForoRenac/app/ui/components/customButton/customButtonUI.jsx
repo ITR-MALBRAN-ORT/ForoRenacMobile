@@ -7,6 +7,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
+import { colors } from '../../styles/Theme';
 
 export default CustomButtonUI = ({text, onPress, disabled}) => {
   return (
@@ -46,6 +47,6 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    color: 'white',
+    color: colors.WHITE,
   },
 });

@@ -83,7 +83,6 @@ fakeCaseOne.newBorn = fakeNewBorn;
 fakeCaseOne.mother = fakeMother;
 fakeCaseOne.father = fakeFather;
 fakeCaseOne.addMalformation({type: 0, name: 'Pilonidal defects'});
-console.log('fakeCaseOne', fakeCaseOne);
 
 // fake case 2
 const fakeCaseTwo = new Case({
@@ -165,25 +164,25 @@ const fakeCase = {
     },
   ]
  const DATA = [
-  {id: 1223, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1224, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1225, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1226, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1227, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1228, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1229, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1220, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1221, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1222, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1241, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1230, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1231, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1232, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1233, fecha: "09/06", estado: 2, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1234, fecha: "09/06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1236, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1237, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
-  {id: 1239, fecha: "09/06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso"},
+  {id: 1223, fecha: "2022-09-07", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1224, fecha: "2022-09-05", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1225, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1226, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1227, fecha: "2022-09-06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1228, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1229, fecha: "2022-09-06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1220, fecha: "2022-09-06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1221, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1222, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1241, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1230, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1231, fecha: "2022-09-06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1232, fecha: "2022-09-06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1233, fecha: "2022-09-06", estado: 2, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1234, fecha: "2022-09-06", estado: 1, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1236, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1237, fecha: "2022-09-06", estado: 0, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
+  {id: 1239, fecha: "2022-09-06", estado: 3, nacido: "vivo", sexo: "masculino", malforma: "Tronco Arterioso", Dni: "32124586"},
 ]
 
 const DATACLOSED = [
