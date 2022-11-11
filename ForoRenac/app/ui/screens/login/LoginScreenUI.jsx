@@ -20,14 +20,13 @@ import CustomInputUI from '../../components/customInput/CustomInputUI';
 
 export default LoginScreenUI = ({
   handleSubmit,
-  handle,
-  error,
+  handleEmail,
+  handlePassword,
+  errorEmail,
+  errorPassword,
   disabled,
   navigate,
 }) => {
-  
-  const {handleEmail, handlePassword} = handle
-  const {errorEmail, errorPassword} = error
 
   return (
     <KeyboardAvoidingView
@@ -47,7 +46,7 @@ export default LoginScreenUI = ({
           type="email-address"
           secureTextEntry={false}
           placeholder="ejemplo@gmail.com"
-          saveValue={handleEmail}
+          onEndEditing={handleEmail}
           err={errorEmail}
         />
         {/* Input Password */}
@@ -57,7 +56,7 @@ export default LoginScreenUI = ({
           type="default"
           secureTextEntry={true}
           placeholder="*********"
-          saveValue={handlePassword}
+          onEndEditing={handlePassword}
           err={errorPassword}
         />
         <Pressable onPress={()=>navigate(LOGIN_STACK.PASSWORD_RECOVERY_SCREEN)} style={{alignItems:'center'}}>
