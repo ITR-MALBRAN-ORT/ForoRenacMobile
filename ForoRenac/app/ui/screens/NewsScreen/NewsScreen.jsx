@@ -8,5 +8,6 @@ export default function NewsScreen() {
     fb = new Date(b.Fecha);
     return fa.getTime() - fb.getTime();
   })
+  Data.reverse()
   return <NewsUI Data={Data} />
 }
