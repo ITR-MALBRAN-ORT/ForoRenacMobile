@@ -6,7 +6,7 @@ export default function NewsUI({Data}) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Novedades</Text>
-      <FlatList data={Data} horizontal renderItem={NewsCard} style={{padding: 20}} />
+      <FlatList data={Data} renderItem={NewsCard} style={{padding: 20}} />
     </View>
   );
 }

@@ -4,6 +4,7 @@ import {colors} from '../../styles/Theme';
 
 export default function NewsCard({item}) {
   return (
+    <>
     <View style={styles.container}>
       {item.Imagen !== null && <Image source={{uri: item.Imagen}} style={styles.image} />}
       <View style={styles.textContainer}>
@@ -11,15 +12,16 @@ export default function NewsCard({item}) {
         <Text>{item.Contenido}</Text>
       </View>
     </View>
+    <View style={{height:10}} />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    maxWidth: 300,
-    marginLeft: 10,
-    marginRight: 10,
-    borderRadius: 10
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center"
   },
   textContainer: {
     padding: 10,
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   image: {
-    width: 300,
+    width: "100%",
     height: 300,
   },
   title: {
