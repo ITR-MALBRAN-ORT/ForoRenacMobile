@@ -20,4 +20,7 @@ export default {
   sent: 'Sent',
   review: 'Review',
   historial: 'Historial',
+  age: 'Age',
+  document:'document'
+
 };

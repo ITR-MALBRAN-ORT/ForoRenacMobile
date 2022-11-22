@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet,ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import CustomInputUI from '../../../components/customInput/CustomInputUI'
+
 import i18n from '../../../../assets/localization/i18n'
 import { NEW_CASE } from '../../../../navigation/NavigationConstants'
 export default function DataMotherUi({handle, errors, disabled, navigationTo}) {
-    const {saveFullName, saveTelephone, saveEmail} = handle
-    const {fullNameError, telephoneError, emailError} = errors
+    const {saveFullName, saveTelephone, saveEmail, saveAge, saveDocument} = handle
+    const {fullNameError, telephoneError, emailError, ageError, documentError} = errors
   return (
     <View style={styles.cont}>
       <KeyboardAvoidingView  behavior={Platform.OS === 'ios' ? 'padding' : null}>
@@ -16,6 +17,7 @@ export default function DataMotherUi({handle, errors, disabled, navigationTo}) {
         </View>
       <View style={styles.form}>
 
+        <Text style={styles.title3}>Nombre </Text>
         <CustomInputUI
           icon="user"
           label={i18n.t('userName')}
@@ -26,6 +28,20 @@ export default function DataMotherUi({handle, errors, disabled, navigationTo}) {
           err={fullNameError}
         />
         
+        <Text style={styles.title3}>Edad </Text>
+        <CustomInputUI
+          style={styles.col1}
+          icon="user"
+          label={i18n.t('Age')}
+          type="number-pad"
+          secureTextEntry={false}
+          placeholder="45"
+          saveValue={saveAge}
+          err={ageError}
+        />
+
+
+        <Text style={styles.title3}>Mail </Text>
         <CustomInputUI
           icon="email-outline"
           label={i18n.t('email')}
@@ -35,6 +51,19 @@ export default function DataMotherUi({handle, errors, disabled, navigationTo}) {
           saveValue={saveEmail}
           err={emailError}
         />
+
+
+        <Text style={styles.title3}>DNI </Text>
+        <CustomInputUI
+          icon="email-outline"
+          label={i18n.t('document')}
+          type="number-pad"
+          secureTextEntry={false}
+          placeholder="xxxxxxxx"
+          saveValue={saveDocument}
+          err={documentError}
+        />
+        <Text style={styles.title3}>Número de teléfono </Text>
         <CustomInputUI
           icon="phone"
           label={i18n.t('phone')}
@@ -81,6 +110,17 @@ const styles = StyleSheet.create({
       fontSize:18,
       color:'black',
       marginRight: 200
+    },
+    title3:{
+      fontSize:15,
+      color:'black',
+      marginRight: 280,
+      marginBottom: -10,
+      marginTop:15
+
+    },
+    col1:{
+      width: "50%"
     },
     form:{
       marginTop:30,

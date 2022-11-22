@@ -10,7 +10,7 @@ function renderItems(){
     return items.map(i=>{
        return <Picker.Item label={i.value} value={i.id} key={i.id}/>
     })
-}
+} 
 
 function checkError(){
     return validLength(err)

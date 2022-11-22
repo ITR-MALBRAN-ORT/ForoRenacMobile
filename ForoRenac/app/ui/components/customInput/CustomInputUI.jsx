@@ -52,14 +52,14 @@ export default CustomInputUI = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    width: "100%",
+    width: "90%",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 10,
     marginTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
-    borderRadius: 20,
+    borderRadius: 15,
     borderWidth: 1,
     borderColor: colors.PRIMARY,
     borderStyle: 'solid',
