@@ -52,7 +52,7 @@ export default CustomInputUI = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    width: "90%",
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 10,

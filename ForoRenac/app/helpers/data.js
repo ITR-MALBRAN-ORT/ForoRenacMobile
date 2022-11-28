@@ -14,3 +14,4 @@ export const estadoEstudios = [{id:1,value:'Registrado'},
                                {id:2,value:'Enviado'},
                                {id:3,value:'Cerrado'},
                                {id:4,value:'En espera de Documentacion'}]
+                               

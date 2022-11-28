@@ -1,64 +1,193 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
-import Select from '../../../components/Select/Select'
-import { colors } from '../../../styles/Theme'
-import { sexos, nacidos, provincias } from '../../../../helpers/data'
-import { NEW_CASE } from '../../../../navigation/NavigationConstants'
-export default function DataChildUi({handle, errors, disabled, navigationTo, values}) {
-    const {saveNacido,saveProvincia,saveSex} = handle
-    const {sexError, provinciaError, nacidoError} = errors
-    const {sex, nacido, provincia} = values
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native';
+import React, {useState} from 'react';
+import Select from '../../../components/Select/Select';
+import {colors} from '../../../styles/Theme';
+import {sexos, nacidos, provincias} from '../../../../helpers/data';
+import {NEW_CASE} from '../../../../navigation/NavigationConstants';
+import i18n from '../../../../assets/localization/i18n';
+import CustomInput from '../../../components/customInput/CustomInput';
+import DatePicker from 'react-native-date-picker';
+export default function DataChildUi({
+  handle,
+  errors,
+  disabled,
+  navigationTo,
+  values,
+}) {
+  const {
+    saveName,
+    saveLastname,
+    saveBirthdate,
+    saveNacido,
+    saveDNI,
+    saveProvincia,
+    saveSex,
+  } = handle;
+  const {
+    NameError,
+    LastnameError,
+    BirthdateError,
+    DNIError,
+    sexError,
+    provinciaError,
+    nacidoError,
+  } = errors;
+  const {Name, Lastname, Birthdate, DNI, sex, nacido, provincia} = values;
+  const [showDate, setshowDate] = useState(false);
   return (
     <View style={styles.cont}>
-    <View style={styles.nav}>
-      <Text style={styles.title}>Data Child</Text>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
+        <ScrollView>
+          <View style={styles.nav}>
+            <Text style={styles.title}>Nuevo caso </Text>
+            <Text style={styles.title2}>Datos de la madre </Text>
+          </View>
+          <View style={styles.form}>
+            <Text style={styles.title3}>Nombre</Text>
+            <CustomInput
+              label={i18n.t('userName')}
+              type="default"
+              secureTextEntry={false}
+              placeholder="Sandra"
+              saveValue={saveName}
+              value={Name}
+              err={NameError}
+            />
+            <Text style={styles.title3}>Apellido</Text>
+            <CustomInput
+              label={i18n.t('userName')}
+              type="default"
+              secureTextEntry={false}
+              placeholder="Sosa"
+              saveValue={saveLastname}
+              value={Lastname}
+              err={LastnameError}
+            />
+            <Text style={styles.title3}>Fecha de nacimiento</Text>
+            <TouchableOpacity
+              style={[styles.btn, {backgroundColor: '#278AB0'}]}
+              onPress={() => setshowDate(true)}>
+              <Text style={styles.titleButton}>Elegir fecha</Text>
+            </TouchableOpacity>
+            <DatePicker
+              modal
+              open={showDate}
+              date={Birthdate || new Date()}
+              onConfirm={date => {
+                saveBirthdate(date);
+                setshowDate(false);
+              }}
+              onCancel={() => setshowDate(false)}
+              mode="date"
+            />
+            <Select
+              items={nacidos}
+              selectedValue={nacido}
+              onValueChange={saveNacido}
+              title={'Nacido'}
+              err={nacidoError}
+            />
+            <Text style={styles.title3}>DNI</Text>
+            <CustomInput
+              label={i18n.t('userName')}
+              type="number"
+              secureTextEntry={false}
+              placeholder="xx.xxx.xxx"
+              saveValue={saveDNI}
+              value={DNI}
+              err={DNIError}
+            />
+            <Select
+              items={sexos}
+              selectedValue={sex}
+              onValueChange={saveSex}
+              title={'Sexo'}
+              err={sexError}
+            />
+            <Select
+              items={provincias}
+              selectedValue={provincia}
+              onValueChange={saveProvincia}
+              title={'Provincia'}
+              err={provinciaError}></Select>
+            <View style={styles.contBtn}>
+              <TouchableOpacity
+                style={[styles.btn, {backgroundColor: '#6EA4B9'}]}
+                onPress={() => {
+                  navigationTo(NEW_CASE.FORM_MOTHER);
+                }}>
+                <Text style={styles.titleButton}>Atras</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.btn, {backgroundColor: '#278AB0'}]}
+                onPress={() => {
+                  navigationTo(NEW_CASE.FORM_MALFORMATION);
+                }}
+                disabled={disabled}>
+                <Text style={styles.titleButton}>Siguiente</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </View>
-    <View style={styles.form}>
-      <Select items={sexos}  selectedValue={sex} onValueChange={saveSex} title={'Sexo'} err={sexError}></Select> 
-      <Select items={provincias} selectedValue={provincia} onValueChange={saveProvincia} title={'Provincia'} err={provinciaError}></Select>
-      <Select items={nacidos} selectedValue={nacido} onValueChange={saveNacido} title={'Estado Nacido'} err={nacidoError}></Select> 
-      <View style={styles.contBtn}>
-        <TouchableOpacity style={[styles.btn, {backgroundColor:'#278AB0'}]} onPress={()=>{ navigationTo(NEW_CASE.FORM_MALFORMATION)}} disabled={disabled}>
-          <Text style={styles.title}>Siguiente</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  </View>
-  )
+  );
 }
 
-
 const styles = StyleSheet.create({
-    cont:{
-      flex:1,
-    },
-    nav:{
-      backgroundColor:'#278AB0',
-      height:50,
-      marginTop:15,
-      alignItems:'center',
-      justifyContent:'center'
-    },
-    title:{
-      fontSize:15,
-      color:colors.WHITE
-    },
-    form:{
-      marginHorizontal:35,
-      marginTop:30,
-      justifyContent:'space-between',
-    },
-    contBtn:{
-      justifyContent:'center',
-      alignItems:'center',
-      marginVertical:25,
-    },
-    btn:{
-      marginVertical:5,
-      borderRadius:20,
-      width:130,
-      height:35,
-      justifyContent:'center',
-      alignItems:'center',
-    },
-  })
+  cont: {
+    flex: 1,
+  },
+  nav: {
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  titleButton: {
+    fontSize: 15,
+    color: '#fff',
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 20,
+    marginRight: 240,
+    marginTop: 25,
+  },
+  title2: {
+    fontSize: 18,
+    color: 'black',
+    marginRight: 200,
+  },
+  title3: {
+    fontSize: 15,
+    color: 'black',
+    marginBottom: -5,
+    marginTop: 15,
+  },
+  form: {
+    marginHorizontal: 35,
+    marginTop: 30,
+    justifyContent: 'space-between',
+  },
+  contBtn: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 25,
+    flexDirection: 'row',
+  },
+  btn: {
+    marginVertical: 5,
+    borderRadius: 20,
+    width: 130,
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
