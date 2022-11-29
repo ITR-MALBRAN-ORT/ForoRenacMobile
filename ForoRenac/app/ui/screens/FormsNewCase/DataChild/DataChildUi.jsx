@@ -9,7 +9,13 @@ import {
 import React, {useState} from 'react';
 import Select from '../../../components/Select/Select';
 import {colors} from '../../../styles/Theme';
-import {sexos, nacidos, provincias} from '../../../../helpers/data';
+import {
+  sexos,
+  nacidos,
+  provincias,
+  gemelarOptions,
+  AltasOptions
+} from '../../../../helpers/data';
 import {NEW_CASE} from '../../../../navigation/NavigationConstants';
 import i18n from '../../../../assets/localization/i18n';
 import CustomInput from '../../../components/customInput/CustomInput';
@@ -29,6 +35,13 @@ export default function DataChildUi({
     saveDNI,
     saveProvincia,
     saveSex,
+    saveGemelar,
+    saveHistoriaClinica,
+    savePeso,
+    saveTalla,
+    savePerimetro,
+    saveEdad,
+    saveAlta
   } = handle;
   const {
     NameError,
@@ -38,8 +51,30 @@ export default function DataChildUi({
     sexError,
     provinciaError,
     nacidoError,
+    GemelarError,
+    HistoriaClinicaError,
+    PesoError,
+    TallaError,
+    PerimetroError,
+    EdadError,
+    AltaError
   } = errors;
-  const {Name, Lastname, Birthdate, DNI, sex, nacido, provincia} = values;
+  const {
+    Name,
+    Lastname,
+    Birthdate,
+    DNI,
+    sex,
+    nacido,
+    provincia,
+    Gemelar,
+    HistoriaClinica,
+    Peso,
+    Talla,
+    Perimetro,
+    Edad,
+    Alta
+  } = values;
   const [showDate, setshowDate] = useState(false);
   return (
     <View style={styles.cont}>
@@ -97,7 +132,7 @@ export default function DataChildUi({
             <Text style={styles.title3}>DNI</Text>
             <CustomInput
               label={i18n.t('userName')}
-              type="number"
+              type="numeric"
               secureTextEntry={false}
               placeholder="xx.xxx.xxx"
               saveValue={saveDNI}
@@ -112,11 +147,92 @@ export default function DataChildUi({
               err={sexError}
             />
             <Select
+              items={gemelarOptions}
+              selectedValue={Gemelar}
+              onValueChange={saveGemelar}
+              title={'Gemelar'}
+              err={GemelarError}
+            />
+            <Select
               items={provincias}
               selectedValue={provincia}
               onValueChange={saveProvincia}
               title={'Provincia'}
-              err={provinciaError}></Select>
+              err={provinciaError}
+            />
+            <Text style={styles.title3}>Numero de historia clinica</Text>
+            <CustomInput
+              label={i18n.t('userName')}
+              type="numeric"
+              secureTextEntry={false}
+              placeholder="xxxxxxxxxx"
+              saveValue={saveHistoriaClinica}
+              value={HistoriaClinica}
+              err={HistoriaClinicaError}
+            />
+            <View style={styles.row}>
+              <View>
+                <Text style={styles.title3}>Peso (en gramos)</Text>
+                <CustomInput
+                  label={i18n.t('userName')}
+                  type="numeric"
+                  secureTextEntry={false}
+                  placeholder="0.00"
+                  saveValue={savePeso}
+                  value={Peso}
+                  err={PesoError}
+                  shortInput
+                />
+              </View>
+              <View>
+                <Text style={styles.title3}>Talla (en centímetros)</Text>
+                <CustomInput
+                  label={i18n.t('userName')}
+                  type="numeric"
+                  secureTextEntry={false}
+                  placeholder="0.00"
+                  saveValue={saveTalla}
+                  value={Talla}
+                  err={TallaError}
+                  shortInput
+                />
+              </View>
+            </View>
+            <View style={styles.row}>
+              <View>
+                <Text style={styles.title3}>Perímetro cefálico</Text>
+                <CustomInput
+                  label={i18n.t('userName')}
+                  type="numeric"
+                  secureTextEntry={false}
+                  placeholder="0.00"
+                  saveValue={savePerimetro}
+                  value={Perimetro}
+                  err={PerimetroError}
+                  shortInput
+                />
+              </View>
+              <View>
+                <Text style={styles.title3}>Edad gestacional</Text>
+                <CustomInput
+                  label={i18n.t('userName')}
+                  type="numeric"
+                  secureTextEntry={false}
+                  placeholder="0.00"
+                  saveValue={saveEdad}
+                  value={Edad}
+                  err={EdadError}
+                  shortInput
+                />
+              </View>
+            </View>
+            <Select
+              items={AltasOptions}
+              selectedValue={Alta}
+              onValueChange={saveAlta}
+              title={'Alta'}
+              err={AltaError}
+            />
             <View style={styles.contBtn}>
               <TouchableOpacity
                 style={[styles.btn, {backgroundColor: '#6EA4B9'}]}
@@ -189,5 +305,11 @@ const styles = StyleSheet.create({
     height: 35,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 });

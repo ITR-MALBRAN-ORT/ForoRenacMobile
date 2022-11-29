@@ -21,9 +21,9 @@ export default function Select({
     return validLength(err);
   }
   return (
-    <View style={{margin: 5}}>
+    <View>
       <Text style={styles.title}>{title}</Text>
-      <View style={[styles.select, {borderColor: err ? 'red' : colors.BLACK}]}>
+      <View style={[styles.select, {borderColor: err ? 'red' : colors.PRIMARY}]}>
         <Picker
           selectedValue={selectedValue}
           onValueChange={itemValue => onValueChange(itemValue)}>
@@ -40,13 +40,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     color: 'black',
-    marginBottom: -5,
     marginTop: 15,
   },
   select: {
     width: "100%",
     borderWidth: 1,
-    margin: 5,
+    borderRadius: 10,
   },
   error: {
     color: 'red',

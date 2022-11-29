@@ -68,7 +68,7 @@ export default function DataMotherUi({handle, errors, disabled, navigationTo}) {
               saveValue={saveDocument}
               err={documentError}
             />
-            <Text style={styles.title3}>Número de teléfono </Text>
+            <Text style={styles.title3}>Número de teléfono</Text>
             <CustomInputUI
               icon="phone"
               label={i18n.t('phone')}

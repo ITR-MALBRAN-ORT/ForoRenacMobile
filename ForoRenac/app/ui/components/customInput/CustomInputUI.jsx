@@ -30,13 +30,10 @@ export default CustomInputUI = props => {
 
   return (
     <View style={{flexDirection: "column"}}>
-      <View style={errorMessage ? styles.inputError : styles.container}>
+      <View style={[errorMessage ? styles.inputError : styles.container, shortInput ? styles.shortInput : '']}>
         {getIcon()}
         <TextInput
-          style={[
-            styles.input,
-            shortInput ? styles.shortInput : '',
-          ]}
+          style={styles.input}
           placeholder={placeholder}
           keyboardType={type}
           value={value}
