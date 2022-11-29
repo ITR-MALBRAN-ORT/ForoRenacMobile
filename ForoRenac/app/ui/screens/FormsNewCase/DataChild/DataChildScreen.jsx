@@ -18,15 +18,17 @@ export default function DataChildScreen() {
   const [Perimetro, setPerimetro] = useState({value: '', error: null})
   const [Edad, setEdad] = useState({value: '', error: null})
   const [Alta, setAlta] = useState({value: '', error: null})
+  const [AltaFecha, setAltaFecha] = useState({value: '', error: null})
+  const [Hospital, setHospital] = useState({value: '', error: null})
   const [disabled, setDisabled] = useState(true);
   const navigation = useNavigation();
 
   useEffect(() => {
     handleDisabled();
-  }, [Name, Lastname,Birthdate, sex, Gemelar,HistoriaClinica, Peso, Talla, Perimetro, Edad, provincia, nacido]);
+  }, [Name, Lastname,Birthdate, sex, Gemelar,HistoriaClinica, Peso, Talla, Perimetro, Edad,Alta, AltaFecha, Hospital, provincia, nacido]);
 
   const handleDisabled = () => {
-    if ( Name.value && Lastname.value && Birthdate.value && sex.value && Gemelar.value && HistoriaClinica.value && Peso.value && Talla.value && Perimetro.value && Edad.value && provincia.value && nacido.value) {
+    if ( Name.value && Lastname.value && Birthdate.value && sex.value && Gemelar.value && HistoriaClinica.value && Peso.value && Talla.value && Perimetro.value && Edad.value && Alta.value && AltaFecha.value && Hospital.value && provincia.value && nacido.value) {
       setDisabled(false);
     } else {
       setDisabled(true);
@@ -55,7 +57,7 @@ export default function DataChildScreen() {
   };
   const saveDNI = dni => {
     if (dni > 0 && dni <= 99999999 ) {
-        setDNI({value: fullName, error: null});
+        setDNI({value: dni, error: null});
     } else {
         setDNI({value: '', error: 'Required field'});
     }
@@ -130,12 +132,26 @@ export default function DataChildScreen() {
       setAlta({value: '', error: 'Required field'});
     }
   };
+  const saveAltaFecha = date => {
+    if (date !== null) {
+        setAltaFecha({value: date, error: null});
+    } else {
+      setAltaFecha({value: '', error: 'Required field'});
+    }
+  };
+  const saveHospital = hospital => {
+    if (hospital != null) {
+      setHospital({value: hospital, error: null});
+    } else {
+      setHospital({value: '', error: 'Required field'});
+    }
+  };
   function navigationTo(componentName) {
     navigation.navigate(componentName);
   }
   return (
     <DataChildUi
-      handle={{saveName,saveLastname, saveBirthdate,saveDNI, saveNacido, saveGemelar, saveHistoriaClinica , savePeso, saveTalla, saveAlta, savePerimetro, saveEdad, saveProvincia, saveSex}}
+      handle={{saveName,saveLastname, saveBirthdate,saveDNI, saveNacido, saveGemelar, saveHistoriaClinica , savePeso, saveTalla, saveAlta, savePerimetro, saveEdad, saveAltaFecha, saveHospital, saveProvincia, saveSex}}
       errors={{
         NameError: Name.error,
         LastnameError: Lastname.error,
@@ -151,6 +167,8 @@ export default function DataChildScreen() {
         PerimetroError: Perimetro.error,
         EdadError: Edad.error,
         AltaError: Alta.error,
+        AltaFechaError: AltaFecha.error,
+        HospitalError: Hospital.error
       }}
       disabled={disabled}
       navigationTo={navigationTo}
@@ -168,7 +186,9 @@ export default function DataChildScreen() {
         Talla: Talla.value,
         Perimetro: Perimetro.value,
         Edad: Edad.value,
-        Alta: Alta.value
+        Alta: Alta.value,
+        AltaFecha: AltaFecha.value,
+        Hospital: Hospital.value
       }}
     />
   );

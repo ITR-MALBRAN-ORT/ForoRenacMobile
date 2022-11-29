@@ -14,7 +14,8 @@ import {
   nacidos,
   provincias,
   gemelarOptions,
-  AltasOptions
+  AltasOptions,
+  Hospitales
 } from '../../../../helpers/data';
 import {NEW_CASE} from '../../../../navigation/NavigationConstants';
 import i18n from '../../../../assets/localization/i18n';
@@ -41,7 +42,9 @@ export default function DataChildUi({
     saveTalla,
     savePerimetro,
     saveEdad,
-    saveAlta
+    saveAlta,
+    saveAltaFecha,
+    saveHospital
   } = handle;
   const {
     NameError,
@@ -57,7 +60,9 @@ export default function DataChildUi({
     TallaError,
     PerimetroError,
     EdadError,
-    AltaError
+    AltaError,
+    AltaFechaError,
+    HospitalError
   } = errors;
   const {
     Name,
@@ -73,9 +78,12 @@ export default function DataChildUi({
     Talla,
     Perimetro,
     Edad,
-    Alta
+    Alta,
+    AltaFecha,
+    Hospital
   } = values;
   const [showDate, setshowDate] = useState(false);
+  const [showAltaFecha, setshowAltaFecha] = useState(false)
   return (
     <View style={styles.cont}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
@@ -233,6 +241,30 @@ export default function DataChildUi({
               title={'Alta'}
               err={AltaError}
             />
+            <Text style={styles.title3}>Fecha del alta</Text>
+            <TouchableOpacity
+              style={[styles.btn, {backgroundColor: '#278AB0'}]}
+              onPress={() => setshowAltaFecha(true)}>
+              <Text style={styles.titleButton}>Elegir fecha del alta</Text>
+            </TouchableOpacity>
+            <DatePicker
+              modal
+              open={showAltaFecha}
+              date={AltaFecha || new Date()}
+              onConfirm={date => {
+                saveAltaFecha(date);
+                setshowAltaFecha(false);
+              }}
+              onCancel={() => setshowAltaFecha(false)}
+              mode="date"
+            />
+            <Select
+              items={Hospitales}
+              selectedValue={Hospital}
+              onValueChange={saveHospital}
+              title={'Hospital'}
+              err={HospitalError}
+            />
             <View style={styles.contBtn}>
               <TouchableOpacity
                 style={[styles.btn, {backgroundColor: '#6EA4B9'}]}
@@ -301,7 +333,7 @@ const styles = StyleSheet.create({
   btn: {
     marginVertical: 5,
     borderRadius: 20,
-    width: 130,
+    width: 140,
     height: 35,
     justifyContent: 'center',
     alignItems: 'center',

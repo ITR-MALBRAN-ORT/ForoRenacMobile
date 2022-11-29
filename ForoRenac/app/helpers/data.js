@@ -14,5 +14,7 @@ export const estadoEstudios = [{id:1,value:'Registrado'},
                                {id:2,value:'Enviado'},
                                {id:3,value:'Cerrado'},
                                {id:4,value:'En espera de Documentacion'}]
-export const gemelarOptions = [{id:1, value:'Opcion 1'}, {id:2, value:'Opcion 2'}]
-export const AltasOptions = [{id:1, value:'Opcion 1'}, {id:2, value:'Opcion 2'}]
+export const gemelarOptions = [{id:1, value:'No gemelar'}, {id:2, value:'Gemelar'}]
+export const AltasOptions = [{id:1, value:'Sin alta aun'}, {id:2, value:'Derivado'},{id:3, value:'Vivo'} ,{id:4, value:'Muerto'}]
+export const Hospitales = [{id:1, value:'No aplica'}, {id:2, value:'Hospital sur'},{id:3, value:'Hospital este'} ,{id:4, value:'Hospital oeste'}]
+export const PrenatalOptions = [{id:1, value:'SE DETECTÓ ALGUNA ANOMALÍA'}, {id:2, value:'NO SE DETECTÓ NINGUNA ANOMALÍA'},{id:3, value:'NO SE HIZO ECOGRAFÍA'}]
