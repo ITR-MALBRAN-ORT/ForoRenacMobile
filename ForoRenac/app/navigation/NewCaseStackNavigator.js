@@ -7,7 +7,7 @@ import DataEstudiosScreens from "../ui/screens/FormsNewCase/DataEstudios/DataEst
 const NewCaseStackNavigator = () =>{
     const Stack = createStackNavigator()
     return(
-        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={NEW_CASE.FORM_MOTHER} >
+        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={NEW_CASE.FORM_MALFORMATION} >
             <Stack.Screen name={NEW_CASE.FORM_MOTHER} component={DataMotherScreen}/>
             <Stack.Screen name={NEW_CASE.FORM_CHILD} component={DataChildScreen} />
             <Stack.Screen name={NEW_CASE.FORM_MALFORMATION} component={DataMalformationScreen}/>
