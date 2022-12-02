@@ -3,7 +3,6 @@ import DataMotherScreen from "../ui/screens/FormsNewCase/DataMother/DataMotherSc
 import { NEW_CASE } from "./NavigationConstants"
 import DataChildScreen from "../ui/screens/FormsNewCase/DataChild/DataChildScreen"
 import DataMalformationScreen from "../ui/screens/FormsNewCase/DataMalformation/DataMalformationScreen"
-import DataEstudiosScreens from "../ui/screens/FormsNewCase/DataEstudios/DataEstudiosScreen"
 const NewCaseStackNavigator = () =>{
     const Stack = createStackNavigator()
     return(
@@ -11,7 +10,6 @@ const NewCaseStackNavigator = () =>{
             <Stack.Screen name={NEW_CASE.FORM_MOTHER} component={DataMotherScreen}/>
             <Stack.Screen name={NEW_CASE.FORM_CHILD} component={DataChildScreen} />
             <Stack.Screen name={NEW_CASE.FORM_MALFORMATION} component={DataMalformationScreen}/>
-            <Stack.Screen name={NEW_CASE.FORM_ESTUDIOS} component={DataEstudiosScreens}/> 
         </Stack.Navigator>
     )
 }
