@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
-import {malformations} from '../../../../helpers/data';
+import {malformations, PrenatalOptions} from '../../../../helpers/data';
 import Select from '../../../components/Select/Select';
 import {NEW_CASE} from '../../../../navigation/NavigationConstants';
 import {colors} from '../../../styles/Theme';
@@ -59,7 +59,42 @@ export default function DataMalformationUi({
               err={malformationError}
             />
             <Text style={styles.title3}>Descripcion</Text>
-            <TextInput multiline style={styles.multiline} numberOfLines={4} />
+            {descriptionError && <Text style={styles.err}>{descriptionError}</Text>}
+            <TextInput
+              multiline
+              style={styles.multiline}
+              numberOfLines={4}
+              value={description}
+              onChange={e => saveDescription(e.nativeEvent.text)}
+            />
+            <Select
+              items={PrenatalOptions}
+              selectedValue={Prenatal}
+              onValueChange={savePrenatal}
+              title={'Prenatal'}
+              err={PrenatalError}
+            />
+            <Text style={styles.title3}>
+              Anomalías detectadas en prenatal (si corresponde)
+            </Text>
+            {AnomaliasError && <Text style={styles.err}>{AnomaliasError}</Text>}
+            <TextInput
+              multiline
+              style={styles.multiline}
+              numberOfLines={4}
+              value={Anomalias}
+              onChange={e => saveAnomalias(e.nativeEvent.text)}
+            />
+            <Text style={styles.title3}>Observaciones</Text>
+            {ObservacionesError && <Text style={styles.err}>{ObservacionesError}</Text>}
+            <TextInput
+              multiline
+              style={styles.multiline}
+              numberOfLines={4}
+              value={Observaciones}
+              onChange={e => saveObservaciones(e.nativeEvent.text)}
+            />
+            <Text style={styles.link}>Agregar otra malformacion</Text>
             <View style={styles.contBtn}>
               <TouchableOpacity
                 style={[styles.btn, {backgroundColor: '#6EA4B9'}]}
@@ -72,7 +107,10 @@ export default function DataMalformationUi({
                 <Text style={styles.titleButton}>Guardar como borrador</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={[styles.btn, {backgroundColor: disabled ? "#5B6C73": '#1DC690'}]}
+                style={[
+                  styles.btn,
+                  {backgroundColor: disabled ? '#5B6C73' : '#1DC690'},
+                ]}
                 onPress={null}>
                 <Text style={styles.titleButton}>Finalizar</Text>
               </TouchableOpacity>
@@ -105,7 +143,6 @@ const styles = StyleSheet.create({
   title2: {
     fontSize: 18,
     color: 'black',
-    marginRight: 200,
   },
   title3: {
     fontSize: 15,
@@ -119,7 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   contBtn: {
-    width: "100%",
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 25,
@@ -138,4 +175,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
+  multiline: {
+    borderColor: colors.PRIMARY,
+    borderWidth: 1,
+    marginTop: 10,
+    borderRadius: 5,
+  },
+  link: {
+    fontSize: 14,
+    color: colors.SECONDARY,
+    fontWeight: '600',
+    marginTop: 10,
+  },
+  err:{
+    fontSize: 12,
+    color: colors.ALERT,
+    fontWeight: '600',
+  }
 });

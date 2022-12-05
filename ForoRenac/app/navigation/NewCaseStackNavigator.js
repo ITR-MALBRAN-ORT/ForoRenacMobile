@@ -6,7 +6,7 @@ import DataMalformationScreen from "../ui/screens/FormsNewCase/DataMalformation/
 const NewCaseStackNavigator = () =>{
     const Stack = createStackNavigator()
     return(
-        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={NEW_CASE.FORM_MALFORMATION} >
+        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={NEW_CASE.FORM_MOTHER} >
             <Stack.Screen name={NEW_CASE.FORM_MOTHER} component={DataMotherScreen}/>
             <Stack.Screen name={NEW_CASE.FORM_CHILD} component={DataChildScreen} />
             <Stack.Screen name={NEW_CASE.FORM_MALFORMATION} component={DataMalformationScreen}/>
